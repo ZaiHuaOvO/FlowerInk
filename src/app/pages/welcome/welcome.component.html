@@ -1,0 +1,46 @@
+<div nz-flex [nzAlign]="'center'" [nzJustify]="'center'" [nzVertical]="false">
+  <div class="overlay" *ngIf="showOverlay"></div>
+  <nz-list nzItemLayout="vertical">
+    @for (item of data; track item) {
+    <nz-list-item>
+      <nz-list-item-meta>
+        <nz-list-item-meta-title>
+          <a>{{ item.title }}</a>
+        </nz-list-item-meta-title>
+        <nz-list-item-meta-description>
+          {{ item.description }}
+        </nz-list-item-meta-description>
+      </nz-list-item-meta>
+      {{ item.content }}
+
+      <nz-list-footer>
+        <span
+          nz-icon
+          nzType="heart"
+          style="margin-right: 4px"
+          nzTheme="outline"
+        ></span>
+        {{ item.likes }}
+        ｜
+        <span nz-icon nzType="eye" style="margin: 4px" nzTheme="outline"></span>
+        {{ item.views }}
+        ｜
+        <span
+          nz-icon
+          nzType="field-time"
+          style="margin: 4px"
+          nzTheme="outline"
+        ></span>
+        {{ item.date | date : "yyyy-MM-dd" }}
+      </nz-list-footer>
+      <nz-list-item-extra>
+        <img
+          width="272"
+          alt="logo"
+          src="../../../assets/img/博客缩略图测试.jpg"
+        />
+      </nz-list-item-extra>
+    </nz-list-item>
+    }
+  </nz-list>
+</div>
