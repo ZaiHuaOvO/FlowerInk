@@ -1,9 +1,9 @@
-<div nz-flex [nzAlign]="'center'" [nzJustify]="'center'" [nzVertical]="false">
-  <div class="overlay" *ngIf="showOverlay"></div>
-  <nz-list nzItemLayout="vertical">
-    @for (item of data; track item) {
+<div nz-flex [nzAlign]="'center'" [nzJustify]="'space-between'" [nzVertical]="false" style="width: 100%;"
+  *ngFor="let item of data">
+  <nz-list nzItemLayout="vertical" class="blog">
     <nz-list-item>
       <nz-list-item-meta>
+        <nz-list-item-meta-avatar nzSrc="../../../assets/img/猫娘.jpg"> </nz-list-item-meta-avatar>
         <nz-list-item-meta-title>
           <a>{{ item.title }}</a>
         </nz-list-item-meta-title>
@@ -11,36 +11,29 @@
           {{ item.description }}
         </nz-list-item-meta-description>
       </nz-list-item-meta>
-      {{ item.content }}
+      <!-- 博客文字最多显示三行 -->
+      <div class="blog_content">
+        {{ item.content }}
+      </div>
 
+      <!-- <ul nz-list-item-actions>
+        <nz-list-item-action><i nz-icon nzType="star-o" style="margin-right: 8px;"></i> 156</nz-list-item-action>
+        <nz-list-item-action><i nz-icon nzType="star-o" style="margin-right: 8px;"></i> 156</nz-list-item-action>
+        <nz-list-item-action><i nz-icon nzType="star-o" style="margin-right: 8px;"></i> 2</nz-list-item-action>
+      </ul> -->
       <nz-list-footer>
-        <span
-          nz-icon
-          nzType="heart"
-          style="margin-right: 4px"
-          nzTheme="outline"
-        ></span>
+        <span nz-icon nzType="heart" style="margin: 4px" nzTheme="outline"></span>
         {{ item.likes }}
         ｜
         <span nz-icon nzType="eye" style="margin: 4px" nzTheme="outline"></span>
         {{ item.views }}
         ｜
-        <span
-          nz-icon
-          nzType="field-time"
-          style="margin: 4px"
-          nzTheme="outline"
-        ></span>
+        <span nz-icon nzType="field-time" style="margin: 4px" nzTheme="outline"></span>
         {{ item.date | date : "yyyy-MM-dd" }}
       </nz-list-footer>
       <nz-list-item-extra>
-        <img
-          width="272"
-          alt="logo"
-          src="../../../assets/img/博客缩略图测试.jpg"
-        />
       </nz-list-item-extra>
     </nz-list-item>
-    }
   </nz-list>
+  <img nz-image width="200" alt="" nzSrc="../../../assets/img/博客缩略图测试.jpg" />
 </div>

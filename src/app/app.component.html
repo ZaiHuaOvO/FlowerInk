@@ -1,19 +1,9 @@
 <nz-layout class="app-layout">
   <nz-layout>
     <nz-header>
-      <div
-        class="app-header"
-        nz-flex
-        [nzVertical]="false"
-        [nzJustify]="'space-between'"
-        [nzAlign]="'center'"
-      >
+      <div class="app-header" nz-flex [nzVertical]="false" [nzJustify]="'space-between'" [nzAlign]="'center'">
         <div class="head" nz-flex [nzVertical]="false">
-          <nz-avatar
-            nzSize="small"
-            nzIcon="user"
-            nzSrc="../assets/img/Q 版猫娘.jpg"
-          ></nz-avatar>
+          <nz-avatar nzSize="small" nzIcon="user" nzSrc="../assets/img/猫娘.jpg"></nz-avatar>
           <h5 class="blog_title" nz-typography>再花の博客</h5>
         </div>
 
@@ -51,42 +41,16 @@
 
       <div class="side_bar">
         <nz-affix [nzOffsetTop]="76">
-          <div
-            class="me_box"
-            nz-flex
-            [nzAlign]="'center'"
-            [nzJustify]="'flex-start'"
-            [nzVertical]="true"
-          >
-            <nz-avatar
-              [nzSize]="128"
-              nzSrc="../assets/img/线条小狗上班.png"
-              style="margin-top: 10px"
-            ></nz-avatar>
+          <div class="me_box" nz-flex [nzAlign]="'center'" [nzJustify]="'flex-start'" [nzVertical]="true">
+            <nz-avatar [nzSize]="128" nzSrc="../assets/img/线条小狗上班.png" style="margin-top: 10px"></nz-avatar>
             <h5 nz-typography class="user_name">再花</h5>
             <p nz-typography>前端小B</p>
-            <i
-              nz-icon
-              nzType="github"
-              nzTheme="outline"
-              class="github_icon"
-            ></i>
+            <i nz-icon nzType="github" nzTheme="outline" class="github_icon"></i>
           </div>
-          <div
-            class="website_box"
-            nz-flex
-            [nzAlign]="'center'"
-            [nzJustify]="'flex-start'"
-            [nzVertical]="true"
-          >
-            <div class="info" >
+          <div class="website_box" nz-flex [nzAlign]="'center'" [nzJustify]="'flex-start'" [nzVertical]="true">
+            <div class="info">
               <div nz-flex [nzAlign]="'center'" [nzJustify]="'flex-start'">
-                <span
-                  nz-icon
-                  nzType="stock"
-                  nzTheme="outline"
-                  style="font-size: 20px"
-                ></span>
+                <span nz-icon nzType="stock" nzTheme="outline" style="font-size: 20px"></span>
                 <h5 nz-typography style="margin-left: 4px; margin-top: 4px">
                   网站信息
                 </h5>

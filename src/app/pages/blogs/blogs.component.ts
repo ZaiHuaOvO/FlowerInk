@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BlogsService } from './blogs.service';
 
 @Component({
   selector: 'app-blogs',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class BlogsComponent {
 
+  constructor(
+  ) {
+
+  }
 }
