@@ -7,13 +7,13 @@ import { EchoComponent } from './pages/echo/echo.component';
 import { MeComponent } from './pages/me/me.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/首页' },
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
   {
-    path: '首页',
+    path: 'home',
     component: WelcomeComponent
   },
   {
-    path: '博客',
+    path: 'blog',
     component: BlogsComponent
   },
   {
@@ -32,6 +32,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

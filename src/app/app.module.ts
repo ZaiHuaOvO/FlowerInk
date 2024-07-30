@@ -19,7 +19,7 @@ import { DiaryComponent } from './pages/diary/diary.component';
 import { EchoComponent } from './pages/echo/echo.component';
 import { MeComponent } from './pages/me/me.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 registerLocaleData(zh);
 
 @NgModule({
@@ -39,7 +39,8 @@ registerLocaleData(zh);
     NzLayoutModule,
     NzMenuModule,
     FormsModule,
-    NgZorroModule
+    NgZorroModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },
