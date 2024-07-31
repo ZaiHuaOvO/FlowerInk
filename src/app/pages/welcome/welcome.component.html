@@ -1,39 +1,118 @@
-<div nz-flex [nzAlign]="'center'" [nzJustify]="'space-between'" [nzVertical]="false" style="width: 100%;"
-  *ngFor="let item of data">
-  <nz-list nzItemLayout="vertical" class="blog">
-    <nz-list-item>
-      <nz-list-item-meta>
-        <nz-list-item-meta-avatar nzSrc="../../../assets/img/猫娘.jpg"> </nz-list-item-meta-avatar>
-        <nz-list-item-meta-title>
-          <a>{{ item.title }}</a>
-        </nz-list-item-meta-title>
-        <nz-list-item-meta-description>
-          {{ item.description }}
-        </nz-list-item-meta-description>
-      </nz-list-item-meta>
-      <!-- 博客文字最多显示三行 -->
-      <div class="blog_content">
-        {{ item.content }}
-      </div>
+<div class="container">
+  <div [@slideFade]="isNavbarVisible ? 'enter' : 'leave'" *ngIf="isNavbarVisible" class="navbar">
+    <!-- <button nz-button nzType="primary">博客</button>
+    <button nz-button nzType="default">生活</button> -->
+  </div>
 
-      <!-- <ul nz-list-item-actions>
-        <nz-list-item-action><i nz-icon nzType="star-o" style="margin-right: 8px;"></i> 156</nz-list-item-action>
-        <nz-list-item-action><i nz-icon nzType="star-o" style="margin-right: 8px;"></i> 156</nz-list-item-action>
-        <nz-list-item-action><i nz-icon nzType="star-o" style="margin-right: 8px;"></i> 2</nz-list-item-action>
-      </ul> -->
-      <nz-list-footer>
-        <span nz-icon nzType="heart" style="margin: 4px" nzTheme="outline"></span>
-        {{ item.likes }}
-        ｜
-        <span nz-icon nzType="eye" style="margin: 4px" nzTheme="outline"></span>
-        {{ item.views }}
-        ｜
-        <span nz-icon nzType="field-time" style="margin: 4px" nzTheme="outline"></span>
-        {{ item.date | date : "yyyy-MM-dd" }}
-      </nz-list-footer>
-      <nz-list-item-extra>
-      </nz-list-item-extra>
-    </nz-list-item>
-  </nz-list>
-  <img nz-image width="200" alt="" nzSrc="../../../assets/img/博客缩略图测试.jpg" />
+  <div class="background-image-box">
+    <img src="../../../assets/img/首页.jpg" class="background-image" alt="Background Image"
+      [@fadeInTranslate]="!isNavbarVisible ? 'enter' : 'leave'">
+
+    <div class="background-title-box">
+      <h1 nz-typography class="background-title" @TextFadeInTranslate>花墨</h1>
+    </div>
+  </div>
+
+
+  <div class="scrollable-content" #scrollableContent>
+    <div class="overlay"></div>
+    <div class="arrow-box" (click)="scrollDown()">
+      <div class="arrow arrow-1" [@ArrowFadeInTranslate]="isNavbarVisible ? 'enter' : 'leave'" *ngIf="!isNavbarVisible">
+      </div>
+      <div class="arrow arrow-2" [@ArrowFadeInTranslate]="isNavbarVisible ? 'enter' : 'leave'" *ngIf="!isNavbarVisible">
+      </div>
+    </div>
+    <div class="content" nz-flex nzJustify="center" #content>
+      <div nz-flex nzVertical="false" nz-row nzJustify="center" class="message-box">
+        <div nz-col nzSpan="10" class="website" @fadeInTranslate>
+          <div nz-flex nzVertical="true" class="web-1">
+            <h3 nz-typography class="zcool-kuaile-regular">博客已运行
+              <strong style="color:#c21f30">412</strong>
+              天
+            </h3>
+            <h4 nz-typography class="zcool-kuaile-regular">来访人数
+              <strong style="color:#d11a2d">888</strong>
+              人
+            </h4>
+            <h4 nz-typography class="zcool-kuaile-regular">文章总数
+              <strong style="color:#de1c31">25</strong>
+              篇
+            </h4>
+            <h4 nz-typography class="zcool-kuaile-regular">最后更新时间
+              <strong style="color:#c45a65">2024年7月30日16:06:41</strong>
+            </h4>
+          </div>
+          <div nz-flex nzVertical="true" class="web-1" @fadeInTranslate>
+            <h4 nz-typography class="zcool-kuaile-regular">文章标签：</h4>
+            <div nz-flex nzVertical="false" nzWrap="wrap">
+              <nz-tag nzColor="#C3002F">
+                <span>Angular</span>
+              </nz-tag>
+              <nz-tag nzColor="#DE2351">
+                <span>Nestjs</span>
+              </nz-tag>
+              <nz-tag nzColor="#3b5999">
+                <span>美食</span>
+              </nz-tag>
+              <nz-tag nzColor="#55acee">
+                <span>游戏</span>
+              </nz-tag>
+            </div>
+          </div>
+        </div>
+        <div nz-col nzSpan="14" class="me" @fadeInTranslate>
+          <div nz-flex nzJustify="center" nzVertical="true" style="width: 100%;">
+            <nz-avatar [nzSize]="256" nzSrc="../../../assets/img/再花猫猫头.png" style="margin-top: 10px"></nz-avatar>
+            <br>
+            <h1 nz-typography class="zcool-kuaile-regular">再花的个人主页</h1>
+            <br>
+            <h3 nz-typography class="zcool-kuaile-regular">你好，我是
+              <strong style="color: #002FA7;">再花</strong>
+              ，一名前端，目前定居成都
+            </h3>
+            <br>
+            <h3 nz-typography class="zcool-kuaile-regular">
+              <strong style="color: #002FA7;">花墨</strong>
+              是我自己开发的一个前后端分离个人主页
+            </h3>
+            <h3 nz-typography class="zcool-kuaile-regular">主要用于「个人技术博客」和「记录日常生活」</h3>
+            <br>
+            <div nz-flex nzVertical="false" nzGap="large">
+              <h4 nz-typography class="zcool-kuaile-regular">技术相关：</h4>
+              <button class="tag-button">
+                <span nz-icon nzType="github"></span>
+                <span class="zcool-kuaile-regular">Github</span>
+              </button>
+              <button class="tag-button">
+                <span nz-icon nzType="edit"></span>
+                <span class="zcool-kuaile-regular">博客</span>
+              </button>
+            </div>
+            <br>
+            <div nz-flex nzVertical="false" nzGap="large">
+              <h4 nz-typography class="zcool-kuaile-regular">学习交流：</h4>
+              <button class="tag-button">
+                <span nz-icon nzType="qq"></span>
+                <span class="zcool-kuaile-regular">QQ</span>
+              </button>
+              <button class="tag-button">
+                <span nz-icon nzType="wechat"></span>
+                <span class="zcool-kuaile-regular">微信</span>
+              </button>
+              <button class="tag-button">
+                <span nz-icon nzType="mail"></span>
+                <span class="zcool-kuaile-regular">邮箱</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <nz-back-top [nzTemplate]="tpl">
+    <ng-template #tpl>
+      <span nz-icon nzType="rocket" nzTheme="outline"></span>
+    </ng-template>
+  </nz-back-top> -->
+  <nz-back-top></nz-back-top>
 </div>
