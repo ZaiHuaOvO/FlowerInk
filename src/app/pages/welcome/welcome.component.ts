@@ -61,9 +61,8 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   @ViewChild('scrollableContent', { static: false }) scrollableContentRef!: ElementRef;
   constructor(
     private welcome: WelcomeService,
-    private renderer: Renderer2,
-    private router: Router
-  ) { }
+    private renderer: Renderer2
+    ) { }
 
   ngOnInit() {
 
