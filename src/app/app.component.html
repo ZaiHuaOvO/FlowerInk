@@ -1,6 +1,5 @@
 <!-- 首页 -->
 <app-welcome *ngIf="isHomePage"></app-welcome>
-
 <nz-layout class="app-layout" *ngIf="!isHomePage">
   <nz-layout>
     <nz-header>
@@ -33,6 +32,9 @@
         </ul>
       </div>
     </nz-header>
+    <div class="vanta-container" *ngIf="!isHomePage">
+      <div class="overlay"></div> <!-- 灰色蒙层 -->
+    </div>
     <nz-content>
       <div class="inner-content">
         <router-outlet></router-outlet>

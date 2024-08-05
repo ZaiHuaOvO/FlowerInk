@@ -1,0 +1,26 @@
+.vanta-container {
+    position: fixed;
+    /* 固定定位，不随页面滚动 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* 占满整个视口宽度 */
+    height: 100vh;
+    /* 占满整个视口高度 */
+    z-index: -2;
+    /* 确保动画在页面内容下方 */
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    /* 绝对定位在容器内部 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    /* 半透明灰色蒙层 */
+    z-index: 1;
+    /* 确保蒙层在动画上方 */
+}
