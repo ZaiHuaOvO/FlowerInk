@@ -11,7 +11,6 @@ import {
 } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
-import * as THREE from 'three';
 import CLOUDS from 'vanta/dist/vanta.clouds.min';
 
 @Component({
@@ -68,7 +67,7 @@ import CLOUDS from 'vanta/dist/vanta.clouds.min';
     ]),
   ],
 })
-export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
+export class AppComponent implements AfterViewInit, OnInit {
   // 是否处于首页
   isHomePage: boolean = true;
   // 控制导航栏显示
@@ -97,17 +96,19 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
         this.isHomePage = event.urlAfterRedirects === '/home';
       });
     // if (!this.isHomePage) {
-    this.vantaEffect = CLOUDS({
-      el: this.elementRef.nativeElement, // Vanta.js 动画的 DOM 元素
-      // THREE: THREE, // 使用 three.js，注：个人感觉不用会更好看
-      skyColor: 0x68b8d7, // 天空颜色 (light blue)
-      cloudColor: 0xadc1de, // 云朵颜色 (white)
-      cloudShadowColor: 0x183550, // 云朵阴影颜色
-      sunColor: 0xff9919, // 太阳颜色 (gold)
-      sunGlareColor: 0xff6633, // 太阳眩光颜色 (orange)
-      sunlightColor: 0xff9933, // 阳光颜色 (moccasin)
-      speed: 0.8, // 动画速度
-    });
+    //   this.vantaEffect = [];
+    // } else {
+      // this.vantaEffect = CLOUDS({
+      //   el: this.elementRef.nativeElement, // Vanta.js 动画的 DOM 元素
+      //   // THREE: THREE, // 使用 three.js，注：个人感觉不用会更好看
+      //   skyColor: 0x68b8d7, // 天空颜色 (light blue)
+      //   cloudColor: 0xadc1de, // 云朵颜色 (white)
+      //   cloudShadowColor: 0x183550, // 云朵阴影颜色
+      //   sunColor: 0xff9919, // 太阳颜色 (gold)
+      //   sunGlareColor: 0xff6633, // 太阳眩光颜色 (orange)
+      //   sunlightColor: 0xff9933, // 阳光颜色 (moccasin)
+      //   speed: 0.8, // 动画速度
+      // });
     // }
   }
 
@@ -164,9 +165,5 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
       top: targetScroll,
       behavior: 'smooth',
     });
-  }
-
-  ngOnDestroy(): void {
-    if (this.vantaEffect) this.vantaEffect.destroy();
   }
 }
