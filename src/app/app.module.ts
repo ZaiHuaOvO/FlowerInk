@@ -20,7 +20,6 @@ import { EchoComponent } from './pages/echo/echo.component';
 import { MeComponent } from './pages/me/me.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { VantaBackgroundComponent } from './common_ui/VantaBackground/VantaBackground.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -32,7 +31,6 @@ registerLocaleData(zh);
     EchoComponent,
     MeComponent,
     WelcomeComponent,
-    VantaBackgroundComponent,
   ],
   imports: [
     BrowserModule,
