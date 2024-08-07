@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+.kuaile_text {
+    font-family: "ZCOOL KuaiLe", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(36, 36, 36)
+}

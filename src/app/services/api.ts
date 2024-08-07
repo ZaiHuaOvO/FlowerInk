@@ -2,7 +2,7 @@
 
 export const API = {
   BASE_URL: 'http://localhost:3000',
-  GET_BLOGS: '/blogs',
-  POST_BLOGS: '/blogs',
+  GET_BLOGS: '/blog',
+  POST_BLOGS: '/blog',
   // 其他 API 端点
 };

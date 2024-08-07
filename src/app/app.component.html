@@ -3,20 +3,10 @@
 <nz-layout class="app-layout" *ngIf="!isHomePage">
   <nz-layout>
     <nz-header>
-      <div
-        class="app-header"
-        nz-flex
-        [nzVertical]="false"
-        [nzJustify]="'space-between'"
-        [nzAlign]="'center'"
-      >
-        <div class="head" nz-flex [nzVertical]="false">
-          <nz-avatar
-            nzSize="small"
-            nzIcon="user"
-            nzSrc="../assets/img/猫娘.jpg"
-          ></nz-avatar>
-          <h5 class="blog_title" nz-typography>再花の博客</h5>
+      <div class="app-header" nz-flex [nzVertical]="false" [nzJustify]="'space-between'" [nzAlign]="'center'">
+        <div class="head" nz-flex [nzVertical]="false" [nzAlign]="'center'" [nzGap]="'large'">
+          <nz-avatar nzSize="small" nzIcon="user" nzSrc="../assets/img/猫娘.jpg"></nz-avatar>
+          <h3 class="blog_title kuaile_text" nz-typography>花墨</h3>
         </div>
 
         <ul nz-menu nzMode="horizontal">
@@ -28,9 +18,9 @@
             <span nz-icon nzType="book" nzTheme="outline"></span>
             博客
           </li>
-          <li nz-menu-item [routerLink]="['/留言板']">
+          <li nz-menu-item [routerLink]="['/留言']">
             <span nz-icon nzType="file" nzTheme="outline"></span>
-            留言板
+            留言
           </li>
           <li nz-menu-item [routerLink]="['/关于我']">
             <span nz-icon nzType="user" nzTheme="outline"></span>

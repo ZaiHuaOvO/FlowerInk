@@ -1,3 +1,55 @@
-  <div class="content">
-    <p>这里是其他内容。</p>
+<div class="content" nz-flex [nzVertical]="false" nzJustify="center">
+  <div class="blog">
+    <div *ngFor="let item of blogData" @fadeInTranslate>
+      <nz-skeleton [nzLoading]="loading" class="combination-wrapper">
+        <div class="combination-wrapper" nz-flex [nzGap]="'large'" nzAlign="center">
+          <img nz-image width="150" height="150" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback" alt="" />
+
+          <div nz-flex [nzVertical]="true" nzJustify="center">
+            <h4 nz-typography> {{item.title}} </h4>
+            <p nz-typography style="color: gray;"> {{item.description}} </p>
+            <p nz-typography class="blog_content"> {{item.content}} </p>
+            <div nz-flex nzAlign="center" nzJustify="space-between">
+              <div>
+                <nz-tag *ngFor="let tag of item.tag">{{ tag }}</nz-tag>
+              </div>
+              <div style="color: gray;" nz-flex nzAlign="center">
+                <span nz-icon nzType="eye" nzTheme="outline">{{ item.views }}&nbsp;</span>
+                <nz-divider nzType="vertical"></nz-divider>
+                {{ item.date | date:'yyyy-MM-dd HH:mm' }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </nz-skeleton>
+      <nz-divider></nz-divider>
+    </div>
   </div>
+  <div class="data">
+    <div nz-flex nzVertical="true" nzJustify="start">
+      <div>
+        <h3 nz-typography class="kuaile_text">标签</h3>
+        <div style="padding: 10px;" nz-flex nzGap="large" [nzWrap]="'wrap'">
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+          <nz-tag>Angular</nz-tag>
+        </div>
+      </div>
+      <nz-divider></nz-divider>
+      <div>
+        <h3 nz-typography class="kuaile_text">博客已发布 <span style="color: lightblue;">12</span> 篇</h3>
+        <h3 nz-typography class="kuaile_text">总阅读量 <span style="color: lightblue;">7342</span> </h3>
+      </div>
+    </div>
+  </div>
+</div>

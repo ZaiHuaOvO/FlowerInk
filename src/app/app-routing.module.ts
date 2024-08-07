@@ -10,23 +10,23 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   {
     path: 'home',
-    component: WelcomeComponent
+    component: WelcomeComponent,
   },
   {
     path: 'blog',
-    component: BlogsComponent
+    component: BlogsComponent,
   },
   {
     path: '随笔',
-    component: DiaryComponent
+    component: DiaryComponent,
   },
   {
-    path: '留言板',
-    component: EchoComponent
+    path: '留言',
+    component: EchoComponent,
   },
   {
     path: '关于我',
-    component: MeComponent
+    component: MeComponent,
   },
 ];
 
@@ -34,4 +34,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

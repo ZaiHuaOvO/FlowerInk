@@ -2,14 +2,32 @@ import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { BlogsService } from './blogs.service';
 import CLOUDS from 'vanta/dist/vanta.clouds.min';
 import * as THREE from 'three';
+import { API } from '../../services/api';
+import { trigger, transition, style, animate } from '@angular/animations';
+import { fallback } from '../../data/data';
 
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.component.html',
   styleUrl: './blogs.component.css',
+  animations: [
+    // 渐出+向上平移
+    trigger('fadeInTranslate', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('500ms 50ms ease-in-out', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        animate('100ms ease-out', style({ opacity: 0.6 })),
+      ]),
+    ]),
+  ],
 })
 export class BlogsComponent implements OnInit, OnDestroy {
   blogData: any[] = [];
+  loading = true;
+  baseUrl = API.BASE_URL;
+  fallback = fallback;
   private vantaEffect: any;
   constructor(
     private BlogsService: BlogsService,
@@ -17,10 +35,13 @@ export class BlogsComponent implements OnInit, OnDestroy {
   ) {
     this.BlogsService.getBlogs().subscribe((res: any) => {
       this.blogData = res['data'];
+      setTimeout(() => {
+        this.loading = false;
+      }, 500);
     });
   }
 
-  ngOnInit():void{
+  ngOnInit(): void {
     // this.vantaEffect = CLOUDS({
     //   el: this.elementRef.nativeElement, // Vanta.js 动画的 DOM 元素
     //   // THREE: THREE, // 使用 three.js，注：个人感觉不用会更好看
