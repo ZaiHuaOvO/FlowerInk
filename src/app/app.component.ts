@@ -1,71 +1,20 @@
-import { animate, style, transition, trigger } from '@angular/animations';
 import {
   AfterViewInit,
   Component,
   ElementRef,
-  HostListener,
-  OnDestroy,
   OnInit,
   Renderer2,
   ViewChild,
 } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
-import CLOUDS from 'vanta/dist/vanta.clouds.min';
+import { QuickDown } from './animations/animation';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [
-    // 渐出+向上平移
-    trigger('fadeInTranslate', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('500ms 50ms ease-in-out', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [
-        animate('100ms ease-out', style({ opacity: 0.6 })),
-      ]),
-    ]),
-    // 大字渐出动画
-    trigger('TextFadeInTranslate', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(20px)' }),
-        animate(
-          '1000ms 250ms ease-in',
-          style({ opacity: 1, transform: 'translateY(0)' })
-        ),
-      ]),
-    ]),
-    // 箭头渐出动画
-    trigger('ArrowFadeInTranslate', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(-20px)' }),
-        animate(
-          '1000ms 500ms ease-in',
-          style({ opacity: 1, transform: 'translateY(0)' })
-        ),
-      ]),
-      transition(':leave', [animate('300ms ease-out', style({ opacity: 0 }))]),
-    ]),
-    // 导航栏渐入渐出
-    trigger('slideFade', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(-20px)' }),
-        animate(
-          '300ms ease-out',
-          style({ opacity: 1, transform: 'translateY(0)' })
-        ),
-      ]),
-      transition(':leave', [
-        animate(
-          '300ms ease-out',
-          style({ opacity: 0, transform: 'translateY(-20px)' })
-        ),
-      ]),
-    ]),
-  ],
+  animations: [QuickDown],
 })
 export class AppComponent implements AfterViewInit, OnInit {
   // 是否处于首页

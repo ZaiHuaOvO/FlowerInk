@@ -1,27 +1,14 @@
 import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { BlogsService } from './blogs.service';
-import CLOUDS from 'vanta/dist/vanta.clouds.min';
-import * as THREE from 'three';
 import { API } from '../../services/api';
-import { trigger, transition, style, animate } from '@angular/animations';
 import { fallback } from '../../data/data';
+import { QuickUp } from '../../animations/animation';
 
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.component.html',
   styleUrl: './blogs.component.css',
-  animations: [
-    // 渐出+向上平移
-    trigger('fadeInTranslate', [
-      transition(':enter', [
-        style({ opacity: 0 }),
-        animate('500ms 50ms ease-in-out', style({ opacity: 1 })),
-      ]),
-      transition(':leave', [
-        animate('100ms ease-out', style({ opacity: 0.6 })),
-      ]),
-    ]),
-  ],
+  animations: [QuickUp],
 })
 export class BlogsComponent implements OnInit, OnDestroy {
   blogData: any[] = [];

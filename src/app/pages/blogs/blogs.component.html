@@ -1,6 +1,6 @@
 <div class="content" nz-flex [nzVertical]="false" nzJustify="center">
-  <div class="blog">
-    <div *ngFor="let item of blogData" @fadeInTranslate>
+  <div class="blog" @QuickUp>
+    <div *ngFor="let item of blogData">
       <nz-skeleton [nzLoading]="loading" class="combination-wrapper">
         <div class="combination-wrapper" nz-flex [nzGap]="'large'" nzAlign="center">
           <img nz-image width="150" height="150" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback" alt="" />
@@ -25,7 +25,7 @@
       <nz-divider></nz-divider>
     </div>
   </div>
-  <div class="data">
+  <div class="data" @QuickUp>
     <div nz-flex nzVertical="true" nzJustify="start">
       <div>
         <h3 nz-typography class="kuaile_text">标签</h3>

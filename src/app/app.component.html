@@ -2,7 +2,7 @@
 <app-welcome *ngIf="isHomePage"></app-welcome>
 <nz-layout class="app-layout" *ngIf="!isHomePage">
   <nz-layout>
-    <nz-header>
+    <nz-header @QuickDown>
       <div class="app-header" nz-flex [nzVertical]="false" [nzJustify]="'space-between'" [nzAlign]="'center'">
         <div class="head" nz-flex [nzVertical]="false" [nzAlign]="'center'" [nzGap]="'large'">
           <nz-avatar nzSize="small" nzIcon="user" nzSrc="../assets/img/猫娘.jpg"></nz-avatar>
