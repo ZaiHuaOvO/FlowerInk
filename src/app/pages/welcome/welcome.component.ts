@@ -17,6 +17,7 @@ import {
   slideFade,
   TextFadeInTranslate,
 } from '../../animations/animation';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-welcome',
@@ -46,7 +47,11 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   // 获取滚动内容的整个DOM
   @ViewChild('scrollableContent', { static: false })
   scrollableContentRef!: ElementRef;
-  constructor(private welcome: WelcomeService, private renderer: Renderer2) {}
+  constructor(
+    private welcome: WelcomeService,
+    private renderer: Renderer2,
+    private msg: NzMessageService
+  ) {}
 
   ngOnInit() {
     // 获取博客数量
@@ -110,5 +115,24 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
       top: targetScroll,
       behavior: 'smooth',
     });
+  }
+
+  // 跳转github
+  github(): void {
+    window.open('https://github.com/ZaiHuaOvO', '_blank');
+  }
+
+  // 复制邮箱到剪切板
+  copyEmail(): void {
+    navigator.clipboard
+      .writeText('446840401@qq.com')
+      .then(() => {
+        this.msg.success('邮箱地址已复制到您的剪切板，欢迎邮件o(*￣▽￣*)ブ', {
+          nzDuration: 5000,
+        });
+      })
+      .catch((err) => {
+        console.error('无法复制文本，居然出错了∑( 口 ||', err);
+      });
   }
 }

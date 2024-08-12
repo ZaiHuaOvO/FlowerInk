@@ -4,7 +4,7 @@
   <nz-layout>
     <nz-header @QuickDown>
       <div class="app-header" nz-flex [nzVertical]="false" [nzJustify]="'space-between'" [nzAlign]="'center'">
-        <div class="head" nz-flex [nzVertical]="false" [nzAlign]="'center'" [nzGap]="'large'">
+        <div class="head" nz-flex [nzVertical]="false" [nzAlign]="'center'" [nzGap]="'large'" [routerLink]="['/']">
           <nz-avatar nzSize="small" nzIcon="user" nzSrc="../assets/img/猫娘.jpg"></nz-avatar>
           <h3 class="blog_title kuaile_text" nz-typography>花墨</h3>
         </div>
@@ -35,46 +35,8 @@
     <!-- <div class="overlay"></div>  -->
 
     <nz-content>
-      <router-outlet>
-        <div>
-          <!-- <div class="vanta-container"></div> -->
-        </div>
-      </router-outlet>
+      <router-outlet> </router-outlet>
 
-      <!-- <div class="side_bar">
-        <nz-affix [nzOffsetTop]="76">
-          <div class="me_box" nz-flex [nzAlign]="'center'" [nzJustify]="'flex-start'" [nzVertical]="true">
-            <nz-avatar [nzSize]="128" nzSrc="../assets/img/线条小狗上班.png" style="margin-top: 10px"></nz-avatar>
-            <h5 nz-typography class="user_name">再花</h5>
-            <p nz-typography>前端小B</p>
-            <i nz-icon nzType="github" nzTheme="outline" class="github_icon"></i>
-          </div>
-          <div class="website_box" nz-flex [nzAlign]="'center'" [nzJustify]="'flex-start'" [nzVertical]="true">
-            <div class="info">
-              <div nz-flex [nzAlign]="'center'" [nzJustify]="'flex-start'">
-                <span nz-icon nzType="stock" nzTheme="outline" style="font-size: 20px"></span>
-                <h5 nz-typography style="margin-left: 4px; margin-top: 4px">
-                  网站信息
-                </h5>
-              </div>
-              <nz-descriptions [nzColumn]="1" [nzSize]="'small'">
-                <nz-descriptions-item nzTitle="文章总数">
-                  12
-                </nz-descriptions-item>
-                <nz-descriptions-item nzTitle="本站访客数">
-                  99
-                </nz-descriptions-item>
-                <nz-descriptions-item nzTitle="本站总访问量">
-                  1000
-                </nz-descriptions-item>
-                <nz-descriptions-item nzTitle="最后更新时间">
-                  2024-05-05
-                </nz-descriptions-item>
-              </nz-descriptions>
-            </div>
-          </div>
-        </nz-affix>
-      </div> -->
     </nz-content>
   </nz-layout>
 </nz-layout>

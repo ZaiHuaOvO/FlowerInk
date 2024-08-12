@@ -166,6 +166,7 @@ nz-content {
 .head {
   margin-left: 20px;
   height: 100%;
+  cursor: pointer;
 }
 
 .title {

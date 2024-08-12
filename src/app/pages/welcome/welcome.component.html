@@ -71,27 +71,35 @@
             <br>
             <div nz-flex nzVertical="false" nzGap="large">
               <h4 nz-typography class="zcool-kuaile-regular">技术相关：</h4>
-              <button class="tag-button">
+              <button class="tag-button" (click)="github()">
                 <span nz-icon nzType="github"></span>
                 <span class="zcool-kuaile-regular">Github</span>
               </button>
-              <button class="tag-button">
+              <button class="tag-button" [routerLink]="['/blog']">
                 <span nz-icon nzType="edit"></span>
-                <span class="zcool-kuaile-regular" [routerLink]="['/blog']">博客</span>
+                <span class="zcool-kuaile-regular">博客</span>
               </button>
             </div>
             <br>
             <div nz-flex nzVertical="false" nzGap="large">
               <h4 nz-typography class="zcool-kuaile-regular">学习交流：</h4>
-              <button class="tag-button">
+              <button class="tag-button" nz-popover [nzPopoverContent]="qqQRCode">
                 <span nz-icon nzType="qq"></span>
                 <span class="zcool-kuaile-regular">QQ</span>
               </button>
-              <button class="tag-button">
+              <ng-template #qqQRCode>
+                <img nz-image width="250px" height="250px" nzSrc="../../../assets/img/QRCode/qq.png">
+              </ng-template>
+
+              <button class="tag-button" nz-popover [nzPopoverContent]="wxQRCode">
                 <span nz-icon nzType="wechat"></span>
                 <span class="zcool-kuaile-regular">微信</span>
               </button>
-              <button class="tag-button">
+              <ng-template #wxQRCode>
+                <img nz-image width="250px" height="250px" nzSrc="../../../assets/img/QRCode/wx.png">
+              </ng-template>
+
+              <button class="tag-button" (click)="copyEmail()">
                 <span nz-icon nzType="mail"></span>
                 <span class="zcool-kuaile-regular">邮箱</span>
               </button>
