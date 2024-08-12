@@ -35,7 +35,7 @@
               人
             </h4>
             <h4 nz-typography class="zcool-kuaile-regular">文章总数
-              <strong style="color:#de1c31">25</strong>
+              <strong style="color:#de1c31">{{ data.blog_count }}</strong>
               篇
             </h4>
             <h4 nz-typography class="zcool-kuaile-regular">最后更新时间
@@ -45,24 +45,16 @@
           <div nz-flex nzVertical="true" class="web-1" @fadeInTranslate>
             <h4 nz-typography class="zcool-kuaile-regular">文章标签：</h4>
             <div nz-flex nzVertical="false" nzWrap="wrap">
-              <nz-tag nzColor="#C3002F">
-                <span>Angular</span>
-              </nz-tag>
-              <nz-tag nzColor="#DE2351">
-                <span>Nestjs</span>
-              </nz-tag>
-              <nz-tag nzColor="#3b5999">
-                <span>美食</span>
-              </nz-tag>
-              <nz-tag nzColor="#55acee">
-                <span>游戏</span>
+              <nz-tag *ngFor="let item of tagList" [nzColor]="item.color">
+                <span>{{ item.label }}</span>
               </nz-tag>
             </div>
           </div>
         </div>
         <div nz-col nzSpan="12" class="me" @fadeInTranslate>
           <div nz-flex nzJustify="center" nzVertical="true" style="width: 100%;">
-            <nz-avatar [nzSize]="256" nzSrc="../../../assets/img/再花猫猫头.png" style="margin-top: 10px"></nz-avatar>
+            <nz-avatar [nzSize]="256" nzSrc="../../../assets/img/再花猫猫头.png" nzShape="square"
+              style="margin-top: 10px"></nz-avatar>
             <br>
             <h1 nz-typography class="zcool-kuaile-regular">再花的个人主页</h1>
             <br>

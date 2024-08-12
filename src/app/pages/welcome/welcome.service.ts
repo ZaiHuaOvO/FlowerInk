@@ -4,17 +4,17 @@ import { API } from '../../services/api';
 import { HttpService } from '../../services/http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WelcomeService {
-
-  private api = API
-  constructor(
-    private http: HttpService
-  ) { }
+  private api = API;
+  constructor(private http: HttpService) {}
 
   getBlogs(): Observable<object> {
-    return this.http.get(API.GET_BLOGS);
+    return this.http.get(API.BLOG);
   }
 
+  getTags(): Observable<object> {
+    return this.http.get(API.TAG);
+  }
 }

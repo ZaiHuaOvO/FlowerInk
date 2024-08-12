@@ -29,25 +29,15 @@
     <div nz-flex nzVertical="true" nzJustify="start">
       <div>
         <h3 nz-typography class="kuaile_text">标签</h3>
-        <div style="padding: 10px;" nz-flex nzGap="large" [nzWrap]="'wrap'">
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
-          <nz-tag>Angular</nz-tag>
+        <div style="padding: 10px;" nz-flex [nzWrap]="'wrap'">
+          <nz-tag *ngFor="let item of tagList" [nzColor]="item.color">
+            <span>{{ item.label }}</span>
+          </nz-tag>
         </div>
       </div>
       <nz-divider></nz-divider>
       <div>
-        <h3 nz-typography class="kuaile_text">博客已发布 <span style="color: lightblue;">12</span> 篇</h3>
+        <h3 nz-typography class="kuaile_text">博客已发布 <span style="color: lightblue;">{{ blogCount }}</span> 篇</h3>
         <h3 nz-typography class="kuaile_text">总阅读量 <span style="color: lightblue;">7342</span> </h3>
       </div>
     </div>

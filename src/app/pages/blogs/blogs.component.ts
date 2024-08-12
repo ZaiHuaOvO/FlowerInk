@@ -12,6 +12,8 @@ import { QuickUp } from '../../animations/animation';
 })
 export class BlogsComponent implements OnInit, OnDestroy {
   blogData: any[] = [];
+  blogCount: number = 0;
+  tagList: any[] = [];
   loading = true;
   baseUrl = API.BASE_URL;
   fallback = fallback;
@@ -21,10 +23,15 @@ export class BlogsComponent implements OnInit, OnDestroy {
     private elementRef: ElementRef
   ) {
     this.BlogsService.getBlogs().subscribe((res: any) => {
-      this.blogData = res['data'];
+      this.blogData = res['data'].data;
+      this.blogCount = res['data'].count;
       setTimeout(() => {
         this.loading = false;
       }, 500);
+    });
+    // 获取标签
+    this.BlogsService.getTags().subscribe((res: any) => {
+      this.tagList = res['data'];
     });
   }
 

@@ -34,7 +34,11 @@ import {
 export class WelcomeComponent implements OnInit, AfterViewInit {
   // 控制导航栏显示
   isNavbarVisible = false;
-  test: number = 0;
+
+  data = {
+    blog_count: 0,
+  };
+  tagList: any[] = [];
   // 获取背景大图的DOM
   @ViewChild('background-image', { static: true }) animateElement!: ElementRef;
   // 获取滚动内容的DOM
@@ -44,7 +48,16 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   scrollableContentRef!: ElementRef;
   constructor(private welcome: WelcomeService, private renderer: Renderer2) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    // 获取博客数量
+    this.welcome.getBlogs().subscribe((res: any) => {
+      this.data.blog_count = res['data'].count;
+    });
+    // 获取标签
+    this.welcome.getTags().subscribe((res: any) => {
+      this.tagList = res['data'];
+    });
+  }
 
   ngAfterViewInit() {
     this.renderer.listen(
@@ -63,7 +76,6 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
       // 使用窗口高度转换为百分比
       const viewportHeight = window.innerHeight;
       const contentTopPercentage = (contentTop / viewportHeight) * 100;
-      this.test = contentTopPercentage;
       if (contentTopPercentage < 99) {
         // 只要页面滚动了，就显示导航栏
         this.isNavbarVisible = true;

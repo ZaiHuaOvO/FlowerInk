@@ -4,16 +4,17 @@ import { Observable } from 'rxjs';
 import { API } from '../../services/api';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BlogsService {
-  private api = API
-  constructor(
-    private http: HttpService
-  ) { }
+  private api = API;
+  constructor(private http: HttpService) {}
 
   getBlogs(): Observable<object> {
-    return this.http.get(API.GET_BLOGS);
+    return this.http.get(API.BLOG);
   }
 
+  getTags(): Observable<object> {
+    return this.http.get(API.TAG);
+  }
 }
