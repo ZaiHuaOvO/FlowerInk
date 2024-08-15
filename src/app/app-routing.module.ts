@@ -5,6 +5,7 @@ import { BlogsComponent } from './pages/blogs/blogs.component';
 import { DiaryComponent } from './pages/diary/diary.component';
 import { EchoComponent } from './pages/echo/echo.component';
 import { MeComponent } from './pages/me/me.component';
+import { BlogDetailComponent } from './pages/blogs/blog-detail/blog-detail.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'blog',
     component: BlogsComponent,
+  },
+  {
+    path: 'blog-detail/:id',
+    component: BlogDetailComponent,
   },
   {
     path: '随笔',

@@ -14,6 +14,10 @@ export class BlogsService {
     return this.http.get(API.BLOG);
   }
 
+  getBlogDetail(Id: string): Observable<object> {
+    return this.http.get(API.BLOG + `/${Id}`);
+  }
+
   getTags(): Observable<object> {
     return this.http.get(API.TAG);
   }

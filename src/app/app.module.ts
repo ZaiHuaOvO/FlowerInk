@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,8 @@ import { EchoComponent } from './pages/echo/echo.component';
 import { MeComponent } from './pages/me/me.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BlogDetailComponent } from './pages/blogs/blog-detail/blog-detail.component';
+import { MarkdownModule } from 'ngx-markdown';
 registerLocaleData(zh);
 
 @NgModule({
@@ -27,6 +29,7 @@ registerLocaleData(zh);
     AppComponent,
 
     BlogsComponent,
+    BlogDetailComponent,
     DiaryComponent,
     EchoComponent,
     MeComponent,
@@ -40,8 +43,10 @@ registerLocaleData(zh);
     NzMenuModule,
     FormsModule,
     NgZorroModule,
+    MarkdownModule.forRoot(),
     BrowserAnimationsModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },
     provideAnimationsAsync(),

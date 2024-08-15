@@ -1,6 +1,6 @@
 <div class="content" nz-flex [nzVertical]="false" nzJustify="center">
   <div class="blog" @QuickUp>
-    <div *ngFor="let item of blogData" class="blog_box">
+    <div *ngFor="let item of blogData" class="blog_box" (click)="Detail(item)">
       <nz-skeleton [nzLoading]="loading" class="combination-wrapper">
         <div class="combination-wrapper" nz-flex [nzGap]="'large'" nzAlign="center">
           <img nz-image width="150" height="150" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback" alt="" />

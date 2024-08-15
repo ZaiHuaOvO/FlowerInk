@@ -3,6 +3,8 @@ import { BlogsService } from './blogs.service';
 import { API } from '../../services/api';
 import { fallback } from '../../data/data';
 import { QuickUp } from '../../animations/animation';
+import { Blog } from '../interfaces/blog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-blogs',
@@ -20,7 +22,8 @@ export class BlogsComponent implements OnInit, OnDestroy {
   private vantaEffect: any;
   constructor(
     private BlogsService: BlogsService,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private router: Router
   ) {
     this.BlogsService.getBlogs().subscribe((res: any) => {
       this.blogData = res['data'].data;
@@ -51,5 +54,9 @@ export class BlogsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     // if (this.vantaEffect) this.vantaEffect.destroy();
+  }
+
+  Detail(blog: Blog): void {
+    window.open(`blog-detail/${blog.id}`);
   }
 }

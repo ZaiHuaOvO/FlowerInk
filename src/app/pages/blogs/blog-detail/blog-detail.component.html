@@ -1,0 +1,33 @@
+<div class="content" nz-flex [nzVertical]="false" nzJustify="center">
+  <div class="data"></div>
+  <div class="blog" @QuickUp>
+    <!-- <nz-skeleton [nzLoading]="loading" class="combination-wrapper">
+    </nz-skeleton> -->
+    <div class="blog-title">
+
+    </div>
+    <div class="blog-msg"></div>
+    <div class="blog-content">
+      <markdown id="currentAnchor" [data]="markdownContent" (ready)="generateAnchors()" lineNumbers lineHighlight
+        commandLine emoji mermaid clipboard></markdown>
+      <!-- <div #editor></div> -->
+    </div>
+  </div>
+  <div class="data" @QuickUp>
+    <nz-affix>
+      <nz-anchor [nzOffsetTop]="100" [nzCurrentAnchor]="currentAnchor">
+        <nz-link *ngFor="let anchor of anchors" [nzHref]="anchor.href" [nzTitle]="anchor.title">
+          <nz-link *ngFor="let subAnchor of anchor.children" [nzHref]="subAnchor.href" [nzTitle]="subAnchor.title">
+            <nz-link *ngFor="let subSubAnchor of subAnchor.children" [nzHref]="subSubAnchor.href"
+              [nzTitle]="subSubAnchor.title">
+              <nz-link *ngFor="let subSubSubAnchor of subSubAnchor.children" [nzHref]="subSubSubAnchor.href"
+                [nzTitle]="subSubSubAnchor.title">
+              </nz-link>
+            </nz-link>
+          </nz-link>
+        </nz-link>
+      </nz-anchor>
+    </nz-affix>
+  </div>
+
+</div>
