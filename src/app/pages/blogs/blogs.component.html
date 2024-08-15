@@ -1,6 +1,6 @@
 <div class="content" nz-flex [nzVertical]="false" nzJustify="center">
   <div class="blog" @QuickUp>
-    <div *ngFor="let item of blogData">
+    <div *ngFor="let item of blogData" class="blog_box">
       <nz-skeleton [nzLoading]="loading" class="combination-wrapper">
         <div class="combination-wrapper" nz-flex [nzGap]="'large'" nzAlign="center">
           <img nz-image width="150" height="150" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback" alt="" />
@@ -15,14 +15,13 @@
               </div>
               <div style="color: gray;" nz-flex nzAlign="center">
                 <span nz-icon nzType="eye" nzTheme="outline">{{ item.views }}&nbsp;</span>
-                <nz-divider nzType="vertical"></nz-divider>
                 {{ item.date | date:'yyyy-MM-dd HH:mm' }}
               </div>
             </div>
           </div>
         </div>
       </nz-skeleton>
-      <nz-divider></nz-divider>
+      <!-- <nz-divider></nz-divider> -->
     </div>
   </div>
   <div class="data" @QuickUp>
