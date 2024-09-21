@@ -57,6 +57,7 @@ export class BlogsComponent implements OnInit, OnDestroy {
   }
 
   Detail(blog: Blog): void {
-    window.open(`blog-detail/${blog.id}`);
+    // window.open(`blog-detail/${blog.id}`);
+    this.router.navigate(['blog-detail', blog.id]);
   }
 }

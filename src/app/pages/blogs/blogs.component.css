@@ -31,11 +31,11 @@
   /* 隐藏溢出文本 */
   text-overflow: ellipsis;
   /* 使用省略号表示溢出的文本 */
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   /* 限制显示的行数为 3 */
-  line-clamp: 3;
+  line-clamp: 1;
   /* 最新浏览器支持 */
-  max-height: 4.5em;
+  max-height: 1.5em;
   /* 根据行高计算出最多显示的高度 */
 }
 

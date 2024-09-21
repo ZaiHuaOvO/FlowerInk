@@ -3,8 +3,6 @@ import { BlogsService } from '../blogs.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { QuickUp } from '../../../animations/animation';
 import { Editor, Viewer } from 'bytemd';
-import gfm from '@bytemd/plugin-gfm';
-import highlight from '@bytemd/plugin-highlight';
 import 'bytemd/dist/index.css';
 import 'highlight.js/styles/vs.css';
 @Component({
@@ -88,5 +86,9 @@ export class BlogDetailComponent implements OnInit {
     //     this.markdownContent = value;
     //   },
     // });
+  }
+
+  onBack(): void {
+    history.go(-1);
   }
 }

@@ -1,21 +1,34 @@
 <div class="content" nz-flex [nzVertical]="false" nzJustify="center">
-  <div class="data"></div>
   <div class="blog" @QuickUp>
-    <!-- <nz-skeleton [nzLoading]="loading" class="combination-wrapper">
-    </nz-skeleton> -->
-    <div class="blog-title">
+    <nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon [nzTitle]="blogData.title">
+      <nz-page-header-extra>
+        <span nz-typography nzType="secondary">
+          发布于{{blogData.date | date:'yyyy-MM-dd HH:mm'}}
+        </span>
+        <nz-divider nzType="vertical"></nz-divider>
+        <span nz-typography nzType="secondary">
+          阅读量：{{blogData.views}}次
+        </span>
+      </nz-page-header-extra>
+    </nz-page-header>
 
-    </div>
-    <div class="blog-msg"></div>
     <div class="blog-content">
       <markdown id="currentAnchor" [data]="markdownContent" (ready)="generateAnchors()" lineNumbers lineHighlight
         commandLine emoji mermaid clipboard></markdown>
-      <!-- <div #editor></div> -->
     </div>
   </div>
-  <div class="data" @QuickUp>
-    <nz-affix>
-      <nz-anchor [nzOffsetTop]="100" [nzCurrentAnchor]="currentAnchor">
+  <div class="data" @QuickUp nz-flex nzVertical>
+    <div class="me" nz-flex nzVertical="false" nzAlign="center" nzJustify="start" nzGap="middle">
+      <nz-avatar [nzSize]="96" nzSrc="../../../assets/img/再花猫猫头.png" nzShape="square"></nz-avatar>
+      <div nz-flex nzVertical>
+        <h5 nz-typography>再花</h5>
+        <span nz-typography nzType="secondary">前端工程师</span>
+      </div>
+    </div>
+    <div class="menu">
+      <nz-page-header class="site-page-header" nzTitle="目录"></nz-page-header>
+      <nz-divider style="margin: 0;"></nz-divider>
+      <nz-anchor [nzAffix]="false" [nzCurrentAnchor]="currentAnchor">
         <nz-link *ngFor="let anchor of anchors" [nzHref]="anchor.href" [nzTitle]="anchor.title">
           <nz-link *ngFor="let subAnchor of anchor.children" [nzHref]="subAnchor.href" [nzTitle]="subAnchor.title">
             <nz-link *ngFor="let subSubAnchor of subAnchor.children" [nzHref]="subSubAnchor.href"
@@ -27,7 +40,7 @@
           </nz-link>
         </nz-link>
       </nz-anchor>
-    </nz-affix>
+    </div>
   </div>
 
 </div>

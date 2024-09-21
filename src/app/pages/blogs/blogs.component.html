@@ -3,11 +3,11 @@
     <div *ngFor="let item of blogData" class="blog_box" (click)="Detail(item)">
       <nz-skeleton [nzLoading]="loading" class="combination-wrapper">
         <div class="combination-wrapper" nz-flex [nzGap]="'large'" nzAlign="center">
-          <img nz-image width="150" height="150" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback" alt="" />
+          <img nz-image width="80" height="80" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback" alt="" />
 
           <div nz-flex [nzVertical]="true" nzJustify="center">
             <h4 nz-typography> {{item.title}} </h4>
-            <p nz-typography style="color: gray;"> {{item.description}} </p>
+            <!-- <p nz-typography style="color: gray;"> {{item.description}} </p> -->
             <p nz-typography class="blog_content"> {{item.content}} </p>
             <div nz-flex nzAlign="center" nzJustify="space-between">
               <div>
