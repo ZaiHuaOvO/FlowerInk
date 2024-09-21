@@ -6,7 +6,7 @@
 }
 
 .app-layout {
-  min-height: 100vh;
+  min-height: 100%;
   z-index: 999;
 }
 
@@ -77,7 +77,6 @@ nz-content {
   overflow: auto;
   z-index: 2;
   /* color: white; */
-  min-height: 100%;
 }
 
 .blog_title {

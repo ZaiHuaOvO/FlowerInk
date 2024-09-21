@@ -1,14 +1,15 @@
 .content {
   width: 100vw;
-  min-height: 150vh;
+  min-height: 100vh;
 }
 
 .blog {
   width: 40%;
-  min-height: 100%;
+  height: 100vh;
   margin-top: 10px;
   border-radius: 10px;
   background-color: white;
+  overflow-y: scroll;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 

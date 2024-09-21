@@ -1,27 +1,25 @@
 <div class="content" nz-flex [nzVertical]="false" nzJustify="center">
   <div class="blog" @QuickUp>
-    <div *ngFor="let item of blogData" class="blog_box" (click)="Detail(item)">
-      <nz-skeleton [nzLoading]="loading" class="combination-wrapper">
-        <div class="combination-wrapper" nz-flex [nzGap]="'large'" nzAlign="center">
-          <img nz-image width="80" height="80" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback" alt="" />
+    <div *ngFor="let item of blogData" class="blog_box" (click)="Detail(item)" (scroll)="onScroll($event)">
+      <div class="combination-wrapper" nz-flex [nzGap]="'large'" nzAlign="center">
+        <img nz-image width="80" height="80" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback" alt="" />
 
-          <div nz-flex [nzVertical]="true" nzJustify="center">
-            <h4 nz-typography> {{item.title}} </h4>
-            <!-- <p nz-typography style="color: gray;"> {{item.description}} </p> -->
-            <p nz-typography class="blog_content"> {{item.content}} </p>
-            <div nz-flex nzAlign="center" nzJustify="space-between">
-              <div>
-                <nz-tag *ngFor="let tag of item.tag">{{ tag }}</nz-tag>
-              </div>
-              <div style="color: gray;" nz-flex nzAlign="center">
-                <span nz-icon nzType="eye" nzTheme="outline">{{ item.views }}&nbsp;</span>
-                {{ item.date | date:'yyyy-MM-dd HH:mm' }}
-              </div>
+        <div nz-flex [nzVertical]="true" nzJustify="center" style="width: 100%;">
+          <h4 nz-typography> {{item.title}} </h4>
+          <!-- <p nz-typography style="color: gray;"> {{item.description}} </p> -->
+          <p nz-typography class="blog_content"> {{item.content}} </p>
+          <div nz-flex nzAlign="center" nzJustify="space-between">
+            <div>
+              <nz-tag *ngFor="let tag of item.tag">{{ tag }}</nz-tag>
+            </div>
+            <div style="color: gray;" nz-flex nzAlign="center">
+              <!-- <span nz-icon nzType="eye" nzTheme="outline">{{ item.views }}&nbsp;</span> -->
+              {{ item.date | date:'yyyy-MM-dd HH:mm' }}
             </div>
           </div>
         </div>
-      </nz-skeleton>
-      <!-- <nz-divider></nz-divider> -->
+      </div>
+      <nz-spin [nzTip]="'Loading...'" [nzSpinning]="loading"></nz-spin>
     </div>
   </div>
   <div class="data" @QuickUp>

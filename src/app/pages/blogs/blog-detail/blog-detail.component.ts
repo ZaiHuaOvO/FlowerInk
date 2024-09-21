@@ -23,7 +23,7 @@ export class BlogDetailComponent implements OnInit {
   currentAnchor: string | undefined;
   @ViewChild('blog-anchor')
   elementView!: ElementRef;
-
+  isShow = false;
   @ViewChild('editor') editorElement!: ElementRef;
   editor!: Editor;
 
@@ -41,6 +41,7 @@ export class BlogDetailComponent implements OnInit {
         this.blogData = res['data'];
         this.markdownContent = this.blogData.content;
         this.loading = false;
+        this.isShow = true;
       });
   }
   generateAnchors(): void {

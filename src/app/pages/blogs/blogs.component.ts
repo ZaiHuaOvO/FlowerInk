@@ -26,11 +26,24 @@ export class BlogsComponent implements OnInit, OnDestroy {
     private router: Router
   ) {
     this.BlogsService.getBlogs().subscribe((res: any) => {
-      this.blogData = res['data'].data;
+      this.blogData.push(res['data'].data[0]);
+      this.blogData.push(res['data'].data[1]);
+      this.blogData.push(res['data'].data[2]);
+      this.blogData.push(res['data'].data[3]);
+      this.blogData.push(res['data'].data[0]);
+      this.blogData.push(res['data'].data[1]);
+      this.blogData.push(res['data'].data[2]);
+      this.blogData.push(res['data'].data[3]);
+      this.blogData.push(res['data'].data[0]);
+      this.blogData.push(res['data'].data[1]);
+      this.blogData.push(res['data'].data[2]);
+      this.blogData.push(res['data'].data[3]);
+      this.blogData.push(res['data'].data[0]);
+      this.blogData.push(res['data'].data[1]);
+      this.blogData.push(res['data'].data[2]);
+      this.blogData.push(res['data'].data[3]);
       this.blogCount = res['data'].count;
-      setTimeout(() => {
-        this.loading = false;
-      }, 500);
+      this.loading = false;
     });
     // 获取标签
     this.BlogsService.getTags().subscribe((res: any) => {
@@ -59,5 +72,17 @@ export class BlogsComponent implements OnInit, OnDestroy {
   Detail(blog: Blog): void {
     // window.open(`blog-detail/${blog.id}`);
     this.router.navigate(['blog-detail', blog.id]);
+  }
+
+  onScroll(event: any): void {
+    console.log('event: ', event);
+    const div = event.target;
+
+    // 当用户滚动到底部时
+    if (div.scrollHeight - div.scrollTop === div.clientHeight) {
+      // this.loadItems(); // 加载下一页数据
+      console.log('到底了 ');
+      this.loading = true;
+    }
   }
 }
