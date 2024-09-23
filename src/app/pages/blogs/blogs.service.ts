@@ -10,8 +10,8 @@ export class BlogsService {
   private api = API;
   constructor(private http: HttpService) {}
 
-  getBlogs(): Observable<object> {
-    return this.http.get(API.BLOG);
+  getBlogs(page: number, tag: string = ''): Observable<object> {
+    return this.http.get(API.BLOG + `?page=${page}&tag=${tag}`);
   }
 
   getBlogDetail(Id: string): Observable<object> {

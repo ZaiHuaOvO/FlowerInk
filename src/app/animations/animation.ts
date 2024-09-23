@@ -70,3 +70,25 @@ export const QuickDown = trigger('QuickDown', [
     ),
   ]),
 ]);
+
+// 更慢的从下往上平移渐出
+export const SlowUp = trigger('SlowUp', [
+  transition(':enter', [
+    style({ opacity: 0, transform: 'translateY(20px)' }),
+    animate(
+      '500ms 500ms ease-in',
+      style({ opacity: 1, transform: 'translateY(0)' })
+    ),
+  ]),
+]);
+
+// 更慢的从上往下平移
+export const SlowDown = trigger('SlowDown', [
+  transition(':enter', [
+    style({ opacity: 0, transform: 'translateY(-20px)' }),
+    animate(
+      '500ms 500ms ease-in',
+      style({ opacity: 1, transform: 'translateY(0)' })
+    ),
+  ]),
+]);

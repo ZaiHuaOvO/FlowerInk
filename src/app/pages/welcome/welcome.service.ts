@@ -17,4 +17,8 @@ export class WelcomeService {
   getTags(): Observable<object> {
     return this.http.get(API.TAG);
   }
+
+  getWebInfo(): Observable<object> {
+    return this.http.get(API.INFO);
+  }
 }

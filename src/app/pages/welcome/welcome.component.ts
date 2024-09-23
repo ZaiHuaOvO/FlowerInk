@@ -37,7 +37,10 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   isNavbarVisible = false;
 
   data = {
-    blog_count: 0,
+    runDays: 0,
+    visitCount: 0,
+    lastUpdateTime: '',
+    total: 0,
   };
   tagList: any[] = [];
   // 获取背景大图的DOM
@@ -55,8 +58,8 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     // 获取博客数量
-    this.welcome.getBlogs().subscribe((res: any) => {
-      this.data.blog_count = res['data'].count;
+    this.welcome.getWebInfo().subscribe((res: any) => {
+      this.data = res['data'];
     });
     // 获取标签
     this.welcome.getTags().subscribe((res: any) => {

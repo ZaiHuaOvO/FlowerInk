@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { BlogsService } from '../blogs.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { QuickUp } from '../../../animations/animation';
+import { QuickUp, SlowUp } from '../../../animations/animation';
 import { Editor, Viewer } from 'bytemd';
 import 'bytemd/dist/index.css';
 import 'highlight.js/styles/vs.css';
@@ -9,7 +9,7 @@ import 'highlight.js/styles/vs.css';
   selector: 'app-blog-detail',
   templateUrl: './blog-detail.component.html',
   styleUrls: ['./blog-detail.component.css'],
-  animations: [QuickUp],
+  animations: [QuickUp, SlowUp],
 })
 export class BlogDetailComponent implements OnInit {
   blogData: any;

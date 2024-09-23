@@ -2,7 +2,7 @@ import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { BlogsService } from './blogs.service';
 import { API } from '../../services/api';
 import { fallback } from '../../data/data';
-import { QuickUp } from '../../animations/animation';
+import { QuickUp, SlowUp } from '../../animations/animation';
 import { Blog } from '../interfaces/blog';
 import { Router } from '@angular/router';
 
@@ -10,39 +10,29 @@ import { Router } from '@angular/router';
   selector: 'app-blogs',
   templateUrl: './blogs.component.html',
   styleUrl: './blogs.component.css',
-  animations: [QuickUp],
+  animations: [QuickUp, SlowUp],
 })
 export class BlogsComponent implements OnInit, OnDestroy {
   blogData: any[] = [];
+  total: number = 0;
   blogCount: number = 0;
   tagList: any[] = [];
   loading = true;
   baseUrl = API.BASE_URL;
   fallback = fallback;
+  pageIndex = 1;
+  totalViews: number = 0;
   private vantaEffect: any;
   constructor(
     private BlogsService: BlogsService,
     private elementRef: ElementRef,
     private router: Router
   ) {
-    this.BlogsService.getBlogs().subscribe((res: any) => {
-      this.blogData.push(res['data'].data[0]);
-      this.blogData.push(res['data'].data[1]);
-      this.blogData.push(res['data'].data[2]);
-      this.blogData.push(res['data'].data[3]);
-      this.blogData.push(res['data'].data[0]);
-      this.blogData.push(res['data'].data[1]);
-      this.blogData.push(res['data'].data[2]);
-      this.blogData.push(res['data'].data[3]);
-      this.blogData.push(res['data'].data[0]);
-      this.blogData.push(res['data'].data[1]);
-      this.blogData.push(res['data'].data[2]);
-      this.blogData.push(res['data'].data[3]);
-      this.blogData.push(res['data'].data[0]);
-      this.blogData.push(res['data'].data[1]);
-      this.blogData.push(res['data'].data[2]);
-      this.blogData.push(res['data'].data[3]);
+    this.BlogsService.getBlogs(this.pageIndex).subscribe((res: any) => {
+      this.blogData = res['data'].data;
+      this.total = res['data'].count;
       this.blogCount = res['data'].count;
+      this.totalViews = res['data'].views;
       this.loading = false;
     });
     // 获取标签
@@ -51,22 +41,17 @@ export class BlogsComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnInit(): void {
-    // this.vantaEffect = CLOUDS({
-    //   el: this.elementRef.nativeElement, // Vanta.js 动画的 DOM 元素
-    //   // THREE: THREE, // 使用 three.js，注：个人感觉不用会更好看
-    //   skyColor: 0x68b8d7, // 天空颜色 (light blue)
-    //   cloudColor: 0xadc1de, // 云朵颜色 (white)
-    //   cloudShadowColor: 0x183550, // 云朵阴影颜色
-    //   sunColor: 0xff9919, // 太阳颜色 (gold)
-    //   sunGlareColor: 0xff6633, // 太阳眩光颜色 (orange)
-    //   sunlightColor: 0xff9933, // 阳光颜色 (moccasin)
-    //   speed: 0.8, // 动画速度
-    // });
-  }
+  ngOnInit(): void {}
 
-  ngOnDestroy(): void {
-    // if (this.vantaEffect) this.vantaEffect.destroy();
+  ngOnDestroy(): void {}
+
+  pageIndexChange(e: any): void {
+    this.loading = true;
+    this.pageIndex = e;
+    this.BlogsService.getBlogs(e).subscribe((res: any) => {
+      this.blogData = res['data'].data;
+      this.loading = false;
+    });
   }
 
   Detail(blog: Blog): void {
@@ -74,15 +59,12 @@ export class BlogsComponent implements OnInit, OnDestroy {
     this.router.navigate(['blog-detail', blog.id]);
   }
 
-  onScroll(event: any): void {
-    console.log('event: ', event);
-    const div = event.target;
-
-    // 当用户滚动到底部时
-    if (div.scrollHeight - div.scrollTop === div.clientHeight) {
-      // this.loadItems(); // 加载下一页数据
-      console.log('到底了 ');
-      this.loading = true;
-    }
+  searchByTag(tag: string): void {
+    this.loading = true;
+    this.BlogsService.getBlogs(this.pageIndex, tag).subscribe((res: any) => {
+      this.blogData = res['data'].data;
+      this.blogCount = res['data'].count;
+      this.loading = false;
+    });
   }
 }

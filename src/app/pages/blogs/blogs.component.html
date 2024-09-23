@@ -1,41 +1,61 @@
 <div class="content" nz-flex [nzVertical]="false" nzJustify="center">
   <div class="blog" @QuickUp>
-    <div *ngFor="let item of blogData" class="blog_box" (click)="Detail(item)" (scroll)="onScroll($event)">
-      <div class="combination-wrapper" nz-flex [nzGap]="'large'" nzAlign="center">
-        <img nz-image width="80" height="80" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback" alt="" />
-
-        <div nz-flex [nzVertical]="true" nzJustify="center" style="width: 100%;">
-          <h4 nz-typography> {{item.title}} </h4>
-          <!-- <p nz-typography style="color: gray;"> {{item.description}} </p> -->
-          <p nz-typography class="blog_content"> {{item.content}} </p>
-          <div nz-flex nzAlign="center" nzJustify="space-between">
-            <div>
-              <nz-tag *ngFor="let tag of item.tag">{{ tag }}</nz-tag>
-            </div>
-            <div style="color: gray;" nz-flex nzAlign="center">
-              <!-- <span nz-icon nzType="eye" nzTheme="outline">{{ item.views }}&nbsp;</span> -->
-              {{ item.date | date:'yyyy-MM-dd HH:mm' }}
-            </div>
+    <div *ngFor="let item of blogData" class="blog_box" (click)="Detail(item)">
+      <nz-skeleton [nzActive]="true" [nzLoading]="loading">
+        <div class="combination-wrapper" nz-flex [nzGap]="'large'" nzAlign="center">
+          <div nz-flex [nzVertical]="true" nzJustify="center" style="width: 100%;">
+            <h4 nz-typography> {{item.title}} </h4>
+            <!-- <p nz-typography style="color: gray;"> {{item.description}} </p> -->
+            <p nz-typography class="blog_content"> {{item.content}} </p>
+          </div>
+          <img nz-image width="80" height="80" *ngIf="item.image" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback"
+            alt="" />
+        </div>
+        <div nz-flex nzAlign="center" nzJustify="space-between" style="margin-top: 5px;">
+          <div>
+            <nz-tag *ngFor="let tag of item.tag">{{ tag }}</nz-tag>
+          </div>
+          <div style="color: gray;" nz-flex nzAlign="center">
+            <!-- <span nz-icon nzType="eye" nzTheme="outline">{{ item.views }}&nbsp;</span> -->
+            {{ item.date | date:'yyyy-MM-dd HH:mm' }}
           </div>
         </div>
-      </div>
-      <nz-spin [nzTip]="'Loading...'" [nzSpinning]="loading"></nz-spin>
+      </nz-skeleton>
+    </div>
+    <div class="pagination">
+      <nz-pagination [nzPageIndex]="pageIndex" [nzTotal]="blogCount" nzSimple
+        (nzPageIndexChange)="pageIndexChange($event)"></nz-pagination>
     </div>
   </div>
-  <div class="data" @QuickUp>
-    <div nz-flex nzVertical="true" nzJustify="start">
-      <div>
-        <h3 nz-typography class="kuaile_text">标签</h3>
-        <div style="padding: 10px;" nz-flex [nzWrap]="'wrap'">
-          <nz-tag *ngFor="let item of tagList" [nzColor]="item.color">
-            <span>{{ item.label }}</span>
-          </nz-tag>
-        </div>
+
+  <div class="data" @SlowUp nz-flex nzVertical>
+    <div class="me" nz-flex nzVertical="false" nzAlign="center" nzJustify="start" nzGap="middle">
+      <nz-avatar [nzSize]="96" nzSrc="../../../assets/img/再花猫猫头.png" nzShape="square"></nz-avatar>
+      <div nz-flex nzVertical>
+        <h5 nz-typography>再花</h5>
+        <span nz-typography nzType="secondary">前端工程师</span>
       </div>
-      <nz-divider></nz-divider>
-      <div>
-        <h3 nz-typography class="kuaile_text">博客已发布 <span style="color: lightblue;">{{ blogCount }}</span> 篇</h3>
-        <h3 nz-typography class="kuaile_text">总阅读量 <span style="color: lightblue;">7342</span> </h3>
+    </div>
+    <div class="menu">
+      <div nz-flex nzVertical="true" nzJustify="start">
+        <div>
+          <div nz-flex nzGap="middle" nzAlign="center">
+            <h3 nz-typography class="kuaile_text">标签</h3>
+            <span nz-typography nzType="secondary">点击可筛选</span>
+          </div>
+          <div style="padding: 10px;" nz-flex [nzWrap]="'wrap'">
+            <nz-tag (click)="searchByTag('')" style="cursor: pointer;">全部</nz-tag>
+            <nz-tag *ngFor="let item of tagList" [nzColor]="item.color" style="cursor: pointer;"
+              (click)="searchByTag(item.label)">
+              <span>{{ item.label }}</span>
+            </nz-tag>
+          </div>
+        </div>
+        <nz-divider></nz-divider>
+        <div>
+          <h3 nz-typography class="kuaile_text">博客已发布 <span style="color: lightblue;">{{ total }}</span> 篇</h3>
+          <h3 nz-typography class="kuaile_text">总阅读量 <span style="color: lightblue;">{{ totalViews }}</span> </h3>
+        </div>
       </div>
     </div>
   </div>

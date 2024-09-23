@@ -9,13 +9,13 @@
           <h3 class="blog_title kuaile_text" nz-typography>花墨</h3>
         </div>
 
-        <ul nz-menu nzMode="horizontal">
-          <li nz-menu-item [routerLink]="['/']">
-            <span nz-icon nzType="mail" nzTheme="outline"></span>
+        <ul nz-menu nzMode="horizontal" [nzInlineIndent]="12" nz-flex nzAlign="center" nzJustify="center">
+          <li nz-menu-item [routerLink]="['/']" nz-flex nzAlign="center" nzJustify="center">
+            <span nz-icon nzType="home" nzTheme="outline"></span>
             首页
           </li>
           <li nz-menu-item [routerLink]="['/blog']">
-            <span nz-icon nzType="book" nzTheme="outline"></span>
+            <span nz-icon nzType="align-left" nzTheme="outline"></span>
             博客
           </li>
           <!-- <li nz-menu-item [routerLink]="['/留言']">
