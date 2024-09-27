@@ -1,0 +1,45 @@
+<div id="timeline">
+  <ul>
+    <ng-container *ngFor="let item of lifeData; let i = index">
+      <li>
+        <ng-container *ngIf="i % 2 === 1; else oddTemplate">
+          <div class="content" nz-flex [nzGap]="80" nzAlign="center" @QuickRight>
+            <div nz-flex [nzVertical]="true" [nzGap]="'small'">
+              <h4 nz-typography>{{ item.title }}</h4>
+              <p nz-typography>{{ item.content }}</p>
+            </div>
+            <img nz-image width="100" height="100" [nzSrc]="item.img" *ngIf="item.img" />
+          </div>
+        </ng-container>
+        <ng-template #oddTemplate>
+          <div class="content" nz-flex [nzGap]="80" nzAlign="center" @QuickLeft>
+            <img nz-image width="100" height="100" [nzSrc]="item.img" *ngIf="item.img" />
+            <div nz-flex [nzVertical]="true" [nzGap]="'small'">
+              <h4 nz-typography>{{ item.title }}</h4>
+              <p nz-typography>{{ item.content }}</p>
+            </div>
+          </div>
+        </ng-template>
+        <ng-container *ngIf="i % 2 === 1; else timeTemplate">
+          <div class="time" @SlowLeft>
+            <span class="kuaile_text">{{ item.date | date:'yyyy-MM-dd' }}</span>
+          </div>
+        </ng-container>
+        <ng-template #timeTemplate>
+          <div class="time" @SlowRight>
+            <span class="kuaile_text">{{ item.date | date:'yyyy-MM-dd' }}</span>
+          </div>
+        </ng-template>
+
+      </li>
+    </ng-container>
+  </ul>
+</div>
+<nz-back-top [nzTemplate]="tpl" [nzVisibilityHeight]="100">
+  <ng-template #tpl>
+    <span nz-icon nzType="rocket" nzTheme="outline" style="font-size: 48px;"></span>
+  </ng-template>
+</nz-back-top>
+Scroll down to see the bottom-right
+<strong>blue</strong>
+button.

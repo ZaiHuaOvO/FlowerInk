@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { BlogsComponent } from './pages/blogs/blogs.component';
-import { DiaryComponent } from './pages/diary/diary.component';
 import { EchoComponent } from './pages/echo/echo.component';
 import { MeComponent } from './pages/me/me.component';
 import { BlogDetailComponent } from './pages/blogs/blog-detail/blog-detail.component';
+import { LifeComponent } from './pages/life/life.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -22,12 +22,8 @@ const routes: Routes = [
     component: BlogDetailComponent,
   },
   {
-    path: '随笔',
-    component: DiaryComponent,
-  },
-  {
-    path: '留言',
-    component: EchoComponent,
+    path: 'life',
+    component: LifeComponent,
   },
   {
     path: '关于我',

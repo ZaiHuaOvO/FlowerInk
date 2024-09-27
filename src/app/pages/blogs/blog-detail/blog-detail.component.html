@@ -51,3 +51,12 @@
 <ng-template #elseTemplate>
   <div class="content"></div>
 </ng-template>
+
+<nz-back-top [nzTemplate]="tpl" [nzVisibilityHeight]="100">
+  <ng-template #tpl>
+    <span nz-icon nzType="rocket" nzTheme="outline" style="font-size: 48px;"></span>
+  </ng-template>
+</nz-back-top>
+Scroll down to see the bottom-right
+<strong>blue</strong>
+button.
