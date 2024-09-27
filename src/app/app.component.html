@@ -9,26 +9,37 @@
           <h3 class="blog_title kuaile_text" nz-typography>花墨</h3>
         </div>
 
-        <ul nz-menu nzMode="horizontal" [nzInlineIndent]="12" nz-flex nzAlign="center" nzJustify="center">
+        <!-- <div class="buttons" nz-flex nzVertical="false" nzGap="middle">
+          <div class="text">
+            <span nz-icon nzType="home" nzTheme="outline"></span>
+            <span class="zcool-kuaile-regular">首页</span>
+          </div>
+          <div class="text">
+            <span nz-icon nzType="align-left" nzTheme="outline"></span>
+            <span class="zcool-kuaile-regular">博客</span>
+          </div>
+          <div class="text">
+            <span nz-icon nzType="user" nzTheme="outline"></span>
+            <span class="zcool-kuaile-regular">关于</span>
+          </div>
+        </div> -->
+
+        <ul style="background-color: #F0F2F5;" nz-menu nzMode="horizontal" [nzInlineIndent]="12" nz-flex
+          nzAlign="center" nzJustify="center">
           <li nz-menu-item [routerLink]="['/']" nz-flex nzAlign="center" nzJustify="center">
             <span nz-icon nzType="home" nzTheme="outline"></span>
-            首页
+            <span class="zcool-kuaile-regular">首页</span>
           </li>
-          <li nz-menu-item [routerLink]="['/blog']">
+          <li nz-menu-item [routerLink]="['/blog']" nzMatchRouter>
             <span nz-icon nzType="align-left" nzTheme="outline"></span>
-            博客
+            <span class="zcool-kuaile-regular">博客</span>
           </li>
-          <!-- <li nz-menu-item [routerLink]="['/留言']">
-            <span nz-icon nzType="file" nzTheme="outline"></span>
-            留言
-          </li> -->
-          <li nz-menu-item [routerLink]="['/关于我']">
+
+          <li nz-menu-item [routerLink]="['/关于我']" nzMatchRouter>
             <span nz-icon nzType="user" nzTheme="outline"></span>
-            关于我
+            <span class="zcool-kuaile-regular">关于</span>
           </li>
-          <!-- <li nz-menu-item>
-            <a href="https://ng.ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
-          </li> -->
+
         </ul>
       </div>
     </nz-header>

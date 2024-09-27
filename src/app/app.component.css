@@ -5,6 +5,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+
 .app-layout {
   min-height: 100%;
   z-index: 999;
@@ -67,9 +69,10 @@ nz-header {
   position: relative;
   height: 48px;
   padding: 0;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  background: #F0F2F5;
+  /* box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08); */
 }
+
 
 .ant-menu {
   height: 48px;

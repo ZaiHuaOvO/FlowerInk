@@ -75,3 +75,14 @@ pre {
 #currentAnchor>div>pre>code>span.command-line-prompt>span {
     display: none;
 }
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.zcool-kuaile-regular {
+    font-family: "ZCOOL KuaiLe", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(36, 36, 36)
+}

@@ -1,4 +1,4 @@
-<ng-container *ngIf="isShow">
+<ng-container *ngIf="isShow; else elseTemplate">
   <div class="content" nz-flex [nzVertical]="false" nzJustify="center">
     <div class="blog" @QuickUp>
       <!-- TODO:翻页问题 -->
@@ -47,3 +47,7 @@
 
   </div>
 </ng-container>
+
+<ng-template #elseTemplate>
+  <div class="content"></div>
+</ng-template>
