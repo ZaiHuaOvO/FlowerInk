@@ -22,6 +22,7 @@ import {
   keyframes,
   style,
 } from '@angular/animations';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-life',
@@ -39,7 +40,8 @@ export class LifeComponent implements OnInit {
   constructor(
     private lifeService: LifeService,
     private el: ElementRef,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private modal: NzModalService
   ) {
     this.lifeService.getLifes().subscribe((res: any) => {
       this.lifeData = res['data'].data;
@@ -68,5 +70,13 @@ export class LifeComponent implements OnInit {
         this.renderer.removeClass(this.el.nativeElement, this.animationTrigger);
       }
     }
+  }
+  getLifeDetail(i: any): void {
+    this.modal.create({
+      nzTitle: i.title,
+      nzContent: i.content,
+      nzCloseIcon: '',
+      nzFooter: null,
+    });
   }
 }
