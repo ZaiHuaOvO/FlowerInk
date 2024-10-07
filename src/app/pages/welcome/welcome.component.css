@@ -292,6 +292,51 @@ body {
     box-shadow: #1F2328 2px 8px 4px -6px;
 }
 
+.tag-text {
+    color: #1F2328;
+}
+
+.tag-button-main {
+    align-self: center;
+    background-color: #fff;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: #1F2328 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #1F2328;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1.25rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    min-width: 75px;
+}
+
+.tag-button-main:hover {
+    box-shadow: #1F2328 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+.tag-button-main:focus {
+    box-shadow: #1F2328 2px 8px 4px -6px;
+}
+
 :host ::ng-deep .ant-back-top {
     bottom: 100px;
 }
@@ -309,4 +354,61 @@ body {
 
 :host ::ng-deep strong {
     color: #1088e9;
+}
+
+/* 新版css */
+:host {
+    display: flex;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.app-layout {
+    width: 100vw;
+    min-height: 100vh;
+    z-index: 999;
+}
+
+.card {
+    width: 100%;
+    padding: 64px;
+}
+
+.header {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.ant-avatar {
+    margin: 0 !important;
+}
+
+.buttons {
+    width: 60%;
+    padding: 8px;
+}
+
+.description {
+    width: 60%;
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
+    padding: 8px;
+    /* background-color: #fff; */
+    /* border-radius: 10px; */
+}
+
+.title {
+    font-size: 48px;
+    margin: 0;
+    font-weight: 300;
+}
+
+.webinfo {
+    width: 60%;
+    /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
+    padding: 8px;
+    /* background-color: #fff; */
+    /* border-radius: 10px; */
 }

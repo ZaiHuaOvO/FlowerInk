@@ -82,6 +82,7 @@ nz-content {
 
 .blog_title {
   margin-left: 10px;
+  margin-bottom: 0 !important;
 }
 
 /* 主体 */
@@ -172,20 +173,27 @@ nz-content {
 }
 
 .background-overlay {
-  position: fixed; /* 固定位置，保证不随滚动条移动 */
+  position: fixed;
+  /* 固定位置，保证不随滚动条移动 */
   top: 0;
   left: 0;
-  width: 100vw; /* 全屏宽度 */
-  height: 100vh; /* 全屏高度 */
-  background-color: rgba(128, 128, 128, 0.5); /* 半透明灰色 */
-  z-index: -1; /* 设置负层叠顺序，确保在所有元素下方 */
+  width: 100vw;
+  /* 全屏宽度 */
+  height: 100vh;
+  /* 全屏高度 */
+  background-color: rgba(128, 128, 128, 0.5);
+  /* 半透明灰色 */
+  z-index: -1;
+  /* 设置负层叠顺序，确保在所有元素下方 */
 }
 
 .vanta-container {
   width: 100%;
   height: 100%;
-  position: absolute; /* 相对于父元素绝对定位，覆盖整个背景 */
+  position: absolute;
+  /* 相对于父元素绝对定位，覆盖整个背景 */
   top: 0;
   left: 0;
-  z-index: 0; /* 确保在蒙层的中间层级 */
+  z-index: 0;
+  /* 确保在蒙层的中间层级 */
 }

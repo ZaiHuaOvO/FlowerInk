@@ -3,27 +3,11 @@
 <nz-layout class="app-layout" *ngIf="!isHomePage">
   <nz-layout>
     <nz-header @QuickDown>
-      <div
-        style="background: #fff"
-        class="app-header"
-        nz-flex
-        [nzVertical]="false"
-        [nzJustify]="'space-between'"
-        [nzAlign]="'center'"
-      >
-        <div
-          class="head"
-          nz-flex
-          [nzVertical]="false"
-          [nzAlign]="'center'"
-          [nzGap]="'large'"
-          [routerLink]="['/']"
-        >
-          <nz-avatar
-            nzSize="small"
-            nzIcon="user"
-            nzSrc="../assets/img/猫娘.jpg"
-          ></nz-avatar>
+      <div style="background: #fff" class="app-header" nz-flex [nzVertical]="false" [nzJustify]="'space-between'"
+        [nzAlign]="'center'">
+        <div class="head" nz-flex [nzVertical]="false" nzAlign="center" nzJustify="center" [nzGap]="'large'"
+          [routerLink]="['/']">
+          <nz-avatar nzSize="small" nzIcon="user" nzSrc="../assets/img/猫娘.jpg"></nz-avatar>
           <h3 class="blog_title kuaile_text" nz-typography>花墨</h3>
         </div>
 
@@ -42,21 +26,8 @@
           </div>
         </div> -->
 
-        <ul
-          nz-menu
-          nzMode="horizontal"
-          [nzInlineIndent]="12"
-          nz-flex
-          nzAlign="center"
-          nzJustify="center"
-        >
-          <li
-            nz-menu-item
-            [routerLink]="['/']"
-            nz-flex
-            nzAlign="center"
-            nzJustify="center"
-          >
+        <ul nz-menu nzMode="horizontal" [nzInlineIndent]="12" nz-flex nzAlign="center" nzJustify="center">
+          <li nz-menu-item [routerLink]="['/']" nz-flex nzAlign="center" nzJustify="center">
             <span nz-icon nzType="home" nzTheme="outline"></span>
             <span class="zcool-kuaile-regular">首页</span>
           </li>
@@ -68,7 +39,11 @@
             <span nz-icon nzType="heart" nzTheme="outline"></span>
             <span class="zcool-kuaile-regular">点滴</span>
           </li>
-          <li nz-menu-item [routerLink]="['/关于我']" nzMatchRouter>
+          <li nz-menu-item [routerLink]="['/travel']" nzMatchRouter>
+            <span nz-icon nzType="send" nzTheme="outline"></span>
+            <span class="zcool-kuaile-regular">旅行</span>
+          </li>
+          <li nz-menu-item [routerLink]="['/me']" nzMatchRouter>
             <span nz-icon nzType="user" nzTheme="outline"></span>
             <span class="zcool-kuaile-regular">关于</span>
           </li>

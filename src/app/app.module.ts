@@ -15,13 +15,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient } from '@angular/common/http';
 import { NgZorroModule } from './ng-zorro.module';
 import { BlogsComponent } from './pages/blogs/blogs.component';
-import { EchoComponent } from './pages/echo/echo.component';
 import { MeComponent } from './pages/me/me.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BlogDetailComponent } from './pages/blogs/blog-detail/blog-detail.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { LifeComponent } from './pages/life/life.component';
+import { TravelComponent } from './pages/travel/travel.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -31,9 +31,9 @@ registerLocaleData(zh);
     BlogsComponent,
     BlogDetailComponent,
     LifeComponent,
-    EchoComponent,
     MeComponent,
     WelcomeComponent,
+    TravelComponent,
   ],
   imports: [
     BrowserModule,
