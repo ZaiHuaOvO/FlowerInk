@@ -34,7 +34,10 @@ export class LifeComponent implements OnInit {
   lifeData: any[] = [];
   total = 0;
   loading = true;
-
+  yearData: any[] = [];
+  order = true;
+  isOrder = false;
+  tag: string = '';
   @Input('scrollAnimate') animationTrigger: string = '';
   private isVisible: boolean = false;
   constructor(
@@ -43,13 +46,20 @@ export class LifeComponent implements OnInit {
     private renderer: Renderer2,
     private modal: NzModalService
   ) {
-    this.lifeService.getLifes().subscribe((res: any) => {
-      this.lifeData = res['data'].data;
-      this.total = res['data'].count;
-      this.loading = false;
+    this.getLifes();
+    this.lifeService.getYears().subscribe((res: any) => {
+      this.yearData = res['data'];
     });
   }
-
+  getLifes(year?: number): void {
+    this.lifeService
+      .getLifes(this.tag ? this.tag : '', year ? year : 0)
+      .subscribe((res: any) => {
+        this.lifeData = res['data'].data;
+        this.total = res['data'].count;
+        this.loading = false;
+      });
+  }
   ngOnInit() {}
 
   @HostListener('window:scroll', [])
@@ -78,5 +88,10 @@ export class LifeComponent implements OnInit {
       nzCloseIcon: '',
       nzFooter: null,
     });
+  }
+
+  orderData(): void {
+    this.lifeData.reverse();
+    this.order = !this.order;
   }
 }

@@ -8,24 +8,19 @@
 </div>
 <div class="buttons" @SlowUp>
   <div class="head-box" nz-flex nzAlign="center" nzJustify="center" nzGap="large">
-    <button class=" year-button" role="button">
-      <span class="zcool-kuaile-regular">2021</span>
+    <button class=" year-button" role="button" (click)="getLifes(0)">
+      <span class="zcool-kuaile-regular">全部</span>
     </button>
-    <button class="year-button" role="button">
-      <span class="zcool-kuaile-regular">2022</span>
-    </button>
-    <button class="year-button" role="button">
-      <span class="zcool-kuaile-regular">2023</span>
-    </button>
-    <button class="year-button" role="button">
-      <span class="zcool-kuaile-regular">2024</span>
-    </button>
-    <button class="year-button" role="button">
-      <span class="zcool-kuaile-regular">看最早的</span>
-    </button>
-    <button class="year-button" role="button">
-      <span class="zcool-kuaile-regular">看最新的</span>
-    </button>
+    <ng-container *ngFor="let year of yearData">
+      <button class=" year-button" role="button" (click)="getLifes(year)">
+        <span class="zcool-kuaile-regular">{{ year }}年</span>
+      </button>
+    </ng-container>
+    <!-- <button class="year-button" role="button" (click)="orderData()">
+      <span class="zcool-kuaile-regular">
+        {{ order? '看最早的': '看最新的' }}
+      </span>
+    </button> -->
   </div>
 </div>
 <div id="timeline">
@@ -33,7 +28,8 @@
     <ng-container *ngFor="let item of lifeData; let i = index">
       <li>
         <ng-container *ngIf="i % 2 === 1; else oddTemplate">
-          <div class="content" nz-flex [nzGap]="80" nzAlign="center" @QuickRight (click)="getLifeDetail(item)">
+          <div *ngIf="!isOrder" class="content" nz-flex [nzGap]="80" nzAlign="center" @QuickRight
+            (click)="getLifeDetail(item)">
             <div nz-flex [nzVertical]="true" [nzGap]="'small'">
               <h4 nz-typography>{{ item.title }}</h4>
               <p nz-typography>{{ item.content }}</p>
@@ -42,7 +38,8 @@
           </div>
         </ng-container>
         <ng-template #oddTemplate>
-          <div class="content" nz-flex [nzGap]="80" nzAlign="center" @QuickLeft (click)="getLifeDetail(item)">
+          <div *ngIf="!isOrder" class="content" nz-flex [nzGap]="80" nzAlign="center" @QuickLeft
+            (click)="getLifeDetail(item)">
             <img nz-image width="100" height="100" [nzSrc]="item.img" *ngIf="item.img" />
             <div nz-flex [nzVertical]="true" [nzGap]="'small'">
               <h4 nz-typography>{{ item.title }}</h4>
@@ -51,12 +48,12 @@
           </div>
         </ng-template>
         <ng-container *ngIf="i % 2 === 1; else timeTemplate">
-          <div class="time" @SlowLeft>
+          <div *ngIf="!isOrder" class="time" @SlowLeft>
             <span class="kuaile_text">{{ item.date | date:'yyyy-MM-dd' }}</span>
           </div>
         </ng-container>
         <ng-template #timeTemplate>
-          <div class="time" @SlowRight>
+          <div *ngIf="!isOrder" class="time" @SlowRight>
             <span class="kuaile_text">{{ item.date | date:'yyyy-MM-dd' }}</span>
           </div>
         </ng-template>

@@ -67,15 +67,7 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {
-    this.renderer.listen(
-      this.scrollableContentRef.nativeElement,
-      'scroll',
-      () => {
-        this.checkContentPosition();
-      }
-    );
-  }
+  ngAfterViewInit() {}
 
   checkContentPosition() {
     if (this.contentRef && this.contentRef.nativeElement) {

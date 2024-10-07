@@ -22,13 +22,16 @@ export class BlogsComponent implements OnInit, OnDestroy {
   fallback = fallback;
   pageIndex = 1;
   totalViews: number = 0;
+  selectedTags: string[] = [];
   private vantaEffect: any;
   constructor(
     private BlogsService: BlogsService,
     private elementRef: ElementRef,
     private router: Router
   ) {
-    this.BlogsService.getBlogs(this.pageIndex).subscribe((res: any) => {
+    this.BlogsService.getBlogs({
+      page: this.pageIndex,
+    }).subscribe((res: any) => {
       this.blogData = res['data'].data;
       this.total = res['data'].count;
       this.blogCount = res['data'].count;
@@ -59,9 +62,30 @@ export class BlogsComponent implements OnInit, OnDestroy {
     this.router.navigate(['blog-detail', blog.id]);
   }
 
-  searchByTag(tag: string): void {
+  searchByTag(): void {
+    this.selectedTags = [];
     this.loading = true;
-    this.BlogsService.getBlogs(this.pageIndex, tag).subscribe((res: any) => {
+    this.BlogsService.getBlogs({
+      page: this.pageIndex.toString(),
+      tags: this.selectedTags,
+    }).subscribe((res: any) => {
+      this.blogData = res['data'].data;
+      this.blogCount = res['data'].count;
+      this.loading = false;
+    });
+  }
+
+  handleChange(checked: boolean, tag: string): void {
+    this.loading = true;
+    if (checked) {
+      this.selectedTags.push(tag);
+    } else {
+      this.selectedTags = this.selectedTags.filter((t) => t !== tag);
+    }
+    this.BlogsService.getBlogs({
+      page: this.pageIndex.toString(),
+      tags: this.selectedTags,
+    }).subscribe((res: any) => {
       this.blogData = res['data'].data;
       this.blogCount = res['data'].count;
       this.loading = false;

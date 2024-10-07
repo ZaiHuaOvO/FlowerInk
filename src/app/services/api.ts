@@ -6,5 +6,6 @@ export const API = {
   TAG: '/blog/tag',
   INFO: '/blog/info',
   LIFE: '/life',
+  LIFE_YEAR: '/life/years',
   // 其他 API 端点
 };

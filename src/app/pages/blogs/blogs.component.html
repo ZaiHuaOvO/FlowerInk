@@ -55,11 +55,17 @@
                 {{ tag }}
               </nz-tag>
             } -->
-            <nz-tag (click)="searchByTag('')" style="cursor: pointer;">全部</nz-tag>
-            <nz-tag *ngFor="let item of tagList" [nzColor]="item.color" style="cursor: pointer;"
+            <nz-tag (click)="searchByTag()" style="cursor: pointer;">全部</nz-tag>
+            @for (tag of tagList; track $index) {
+            <nz-tag nzMode="checkable" [nzChecked]="selectedTags.indexOf(tag.label) > -1"
+              (nzCheckedChange)="handleChange($event, tag.label)">
+              {{ tag.label }}
+            </nz-tag>
+            }
+            <!-- <nz-tag *ngFor="let item of tagList" [nzColor]="item.color" style="cursor: pointer;"
               (click)="searchByTag(item.label)">
               <span>{{ item.label }}</span>
-            </nz-tag>
+            </nz-tag> -->
           </div>
         </div>
         <nz-divider></nz-divider>

@@ -9,7 +9,11 @@ import { HttpService } from '../../services/http.service';
 export class LifeService {
   private api = API;
   constructor(private http: HttpService) {}
-  getLifes(tag: string = ''): Observable<object> {
-    return this.http.get(API.LIFE + `?&tag=${tag}`);
+  getLifes(tag: string = '', year?: number): Observable<object> {
+    return this.http.get(API.LIFE + `?&tag=${tag}&year=${year}`);
+  }
+
+  getYears(): Observable<object> {
+    return this.http.get(API.LIFE_YEAR);
   }
 }
