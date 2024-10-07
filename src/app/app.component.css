@@ -5,10 +5,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
 .app-layout {
-  min-height: 100%;
+  min-height: 100vh;
   z-index: 999;
 }
 
@@ -62,29 +60,14 @@ nz-header {
   padding: 0;
   width: 100%;
   z-index: 2;
-  height: 48px;
 }
 
 .app-header {
   position: relative;
-  height: 48px;
+  height: 64px;
   padding: 0;
-  background: #F0F2F5;
-  /* box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08); */
-}
-
-
-.ant-menu {
-  height: 48px;
-}
-
-.ant-menu-item {
-  height: 48px;
-}
-
-.ant-menu-horizontal>.ant-menu-item,
-.ant-menu-horizontal>.ant-menu-submenu {
-  vertical-align: baseline !important;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 
 nz-content {
@@ -94,10 +77,11 @@ nz-content {
   overflow: auto;
   z-index: 2;
   /* color: white; */
+  min-height: 100%;
 }
 
 .blog_title {
-  margin: 0;
+  margin-left: 10px;
 }
 
 /* 主体 */
@@ -181,8 +165,6 @@ nz-content {
 
 .head {
   margin-left: 20px;
-  height: 100%;
-  cursor: pointer;
 }
 
 .title {
@@ -190,27 +172,20 @@ nz-content {
 }
 
 .background-overlay {
-  position: fixed;
-  /* 固定位置，保证不随滚动条移动 */
+  position: fixed; /* 固定位置，保证不随滚动条移动 */
   top: 0;
   left: 0;
-  width: 100vw;
-  /* 全屏宽度 */
-  height: 100vh;
-  /* 全屏高度 */
-  background-color: rgba(128, 128, 128, 0.5);
-  /* 半透明灰色 */
-  z-index: -1;
-  /* 设置负层叠顺序，确保在所有元素下方 */
+  width: 100vw; /* 全屏宽度 */
+  height: 100vh; /* 全屏高度 */
+  background-color: rgba(128, 128, 128, 0.5); /* 半透明灰色 */
+  z-index: -1; /* 设置负层叠顺序，确保在所有元素下方 */
 }
 
 .vanta-container {
   width: 100%;
   height: 100%;
-  position: absolute;
-  /* 相对于父元素绝对定位，覆盖整个背景 */
+  position: absolute; /* 相对于父元素绝对定位，覆盖整个背景 */
   top: 0;
   left: 0;
-  z-index: 0;
-  /* 确保在蒙层的中间层级 */
+  z-index: 0; /* 确保在蒙层的中间层级 */
 }

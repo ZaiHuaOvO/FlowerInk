@@ -24,7 +24,7 @@
     </div>
     <div class="content" nz-flex nzJustify="center" #content>
       <div nz-flex nzVertical="false" nz-row nzJustify="center" class="message-box">
-        <div nz-col nzSpan="12" class="me" @fadeInTranslate>
+        <div nz-col nzSpan="14" class="me" @fadeInTranslate>
           <div nz-flex nzJustify="center" nzVertical="true" style="width: 100%;">
             <nz-avatar [nzSize]="256" nzSrc="../../../assets/img/再花猫猫头.png" nzShape="square"
               style="margin-top: 10px"></nz-avatar>
@@ -79,23 +79,23 @@
             </div>
           </div>
         </div>
-        <div nz-col nzSpan="12" class="website" @fadeInTranslate>
+        <div nz-col nzSpan="10" class="website" @fadeInTranslate>
           <div nz-flex nzVertical="true" class="web-1">
-            <h3 nz-typography class="zcool-kuaile-regular">网站已运行
+            <h4 nz-typography class="zcool-kuaile-regular">网站已运行
               <strong style="color:#c21f30">{{ data.runDays }}</strong>
               天
-            </h3>
-            <h4 nz-typography class="zcool-kuaile-regular">来访人数
+            </h4>
+            <h5 nz-typography class="zcool-kuaile-regular">来访人数
               <strong style="color:#d11a2d">{{ data.visitCount }}</strong>
               人
-            </h4>
-            <h4 nz-typography class="zcool-kuaile-regular">文章总数
+            </h5>
+            <h5 nz-typography class="zcool-kuaile-regular">文章总数
               <strong style="color:#de1c31">{{ data.total }}</strong>
               篇
-            </h4>
-            <h4 nz-typography class="zcool-kuaile-regular">最后更新时间
+            </h5>
+            <h5 nz-typography class="zcool-kuaile-regular">最后更新时间
               <strong style="color:#c45a65">{{ data.lastUpdateTime | date:'yyyy-MM-dd HH:mm' }}</strong>
-            </h4>
+            </h5>
           </div>
           <!-- <div nz-flex nzVertical="true" class="web-1" @fadeInTranslate>
             <h4 nz-typography class="zcool-kuaile-regular">文章标签：</h4>

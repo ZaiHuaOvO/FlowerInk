@@ -280,6 +280,7 @@ body {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    min-width: 50px;
 }
 
 .tag-button:hover {
