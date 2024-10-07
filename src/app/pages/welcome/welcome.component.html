@@ -105,12 +105,12 @@
 <nz-layout class="app-layout">
   <nz-content>
     <div class="card" nz-flex nzJustify="center" nzAlign="center" nzVertical nzGap="large">
-      <div class="header">
+      <div class="header" @SlowDown>
         <nz-avatar [nzSize]="256" nzSrc="../../../assets/img/再花猫猫头.png" nzShape="square"
           style="margin-top: 10px"></nz-avatar>
       </div>
-      <h1 class="title zcool-kuaile-regular">花墨</h1>
-      <div class="buttons" nz-flex nzJustify="center" nzGap="middle" nzAlign="center">
+      <h1 class="title zcool-kuaile-regular" @SlowDown>花墨</h1>
+      <div class="buttons" nz-flex nzJustify="center" nzGap="middle" nzAlign="center" @QuickDown>
         <button class="tag-button-main" [routerLink]="['/blog']">
           <span nz-icon nzType="align-left"></span>
           <span class="zcool-kuaile-regular">博客</span>
@@ -128,7 +128,8 @@
           <span class="zcool-kuaile-regular">关于网站</span>
         </button>
       </div>
-      <div class="buttons" nz-flex nzJustify="center" nzGap="middle" nzAlign="center">
+      <nz-divider></nz-divider>
+      <div class="buttons" nz-flex nzJustify="center" nzGap="middle" nzAlign="center" @QuickUp>
         <button class="tag-button" (click)="github()">
           <span nz-icon nzType="github"></span>
           <!-- <span class="tag-text zcool-kuaile-regular">Github</span> -->
@@ -154,25 +155,23 @@
           <!-- <span class="tag-text zcool-kuaile-regular">邮箱</span> -->
         </button>
       </div>
-      <nz-divider></nz-divider>
-      <div nz-flex nzVertical nzAlign="center" nzJustify="center" class="webinfo">
-        <h4 nz-typography class="zcool-kuaile-regular">网站已运行
+      <div nz-flex nzVertical nzAlign="center" nzJustify="center" class="webinfo" @SlowUp>
+        <h4 nz-typography>网站已运行
           <strong style="color:#c21f30">{{ data.runDays }}</strong>
           天
         </h4>
-        <h5 nz-typography class="zcool-kuaile-regular">来访人数
+        <h4 nz-typography>来访人数
           <strong style="color:#d11a2d">{{ data.visitCount }}</strong>
           人
-        </h5>
-        <h5 nz-typography class="zcool-kuaile-regular">文章总数
+        </h4>
+        <h4 nz-typography>文章总数
           <strong style="color:#de1c31">{{ data.total }}</strong>
           篇
-        </h5>
-        <h5 nz-typography class="zcool-kuaile-regular">最后更新时间
+        </h4>
+        <h4 nz-typography>最后更新时间
           <strong style="color:#c45a65">{{ data.lastUpdateTime | date:'yyyy-MM-dd HH:mm' }}</strong>
-        </h5>
+        </h4>
       </div>
     </div>
-
   </nz-content>
 </nz-layout>

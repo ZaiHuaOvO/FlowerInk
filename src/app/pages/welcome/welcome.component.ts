@@ -14,7 +14,11 @@ import { Router } from '@angular/router';
 import {
   ArrowFadeInTranslate,
   fadeInTranslate,
+  QuickDown,
+  QuickUp,
   slideFade,
+  SlowDown,
+  SlowUp,
   TextFadeInTranslate,
 } from '../../animations/animation';
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -23,14 +27,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css'],
-  animations: [
-    fadeInTranslate,
-    // 大字渐出动画
-    TextFadeInTranslate,
-    // 箭头渐出动画
-    ArrowFadeInTranslate,
-    slideFade,
-  ],
+  animations: [QuickUp, SlowUp, QuickDown, SlowDown],
 })
 export class WelcomeComponent implements OnInit, AfterViewInit {
   // 控制导航栏显示
