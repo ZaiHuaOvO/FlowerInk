@@ -28,7 +28,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
   selector: 'app-life',
   templateUrl: './life.component.html',
   styleUrls: ['./life.component.css'],
-  animations: [QuickLeft, QuickRight, SlowLeft, SlowRight],
+  animations: [QuickLeft, QuickRight, SlowLeft, SlowRight, QuickUp, SlowUp],
 })
 export class LifeComponent implements OnInit {
   lifeData: any[] = [];

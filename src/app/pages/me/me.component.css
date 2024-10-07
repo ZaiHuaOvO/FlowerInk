@@ -1,0 +1,26 @@
+.text-content {
+    max-width: 100%;
+    position: relative;
+}
+
+.text {
+    width: 70%;
+
+}
+
+.text-box {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 4px;
+}
+
+.img {
+    width: 30%;
+    min-width: 250px;
+}
+
+.fixed-image {
+    max-width: 250px;
+}
