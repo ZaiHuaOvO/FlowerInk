@@ -42,8 +42,8 @@
             </h3>
             <h3 nz-typography class="zcool-kuaile-regular">主要用于「个人技术博客」和「记录日常生活」</h3>
             <br>
-            <div nz-flex nzVertical="false" nzGap="large">
-              <h4 nz-typography class="zcool-kuaile-regular">技术相关：</h4>
+            <div nz-flex nzVertical="false" nzGap="large" nzAlign="center">
+              <h4 nz-typography class="zcool-kuaile-regular" style="margin-top: 10px;">技术相关：</h4>
               <button class="tag-button" (click)="github()">
                 <span nz-icon nzType="github"></span>
                 <span class="zcool-kuaile-regular">Github</span>
@@ -54,7 +54,7 @@
               </button>
             </div>
             <br>
-            <div nz-flex nzVertical="false" nzGap="large">
+            <div nz-flex nzVertical="false" nzGap="large" nzAlign="center" style="margin-top: 10px;">
               <h4 nz-typography class="zcool-kuaile-regular">学习交流：</h4>
               <button class="tag-button" nz-popover [nzPopoverContent]="qqQRCode" nzPopoverPlacement="bottom">
                 <span nz-icon nzType="qq"></span>
