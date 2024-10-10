@@ -51,7 +51,9 @@ export class BlogsComponent implements OnInit, OnDestroy {
   pageIndexChange(e: any): void {
     this.loading = true;
     this.pageIndex = e;
-    this.BlogsService.getBlogs(e).subscribe((res: any) => {
+    this.BlogsService.getBlogs({
+      page: this.pageIndex,
+    }).subscribe((res: any) => {
       this.blogData = res['data'].data;
       this.loading = false;
     });

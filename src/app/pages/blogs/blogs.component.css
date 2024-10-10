@@ -4,7 +4,7 @@
 }
 
 .blog {
-  width: 40%;
+  width: 60%;
   height: auto;
   margin-top: 10px;
   border-radius: 10px;
@@ -37,6 +37,7 @@
 }
 
 .blog_content {
+  color: rgb(100, 100, 100);
   display: -webkit-box;
   /* 使用弹性盒子布局 */
   -webkit-box-orient: vertical;
@@ -45,18 +46,18 @@
   /* 隐藏溢出文本 */
   text-overflow: ellipsis;
   /* 使用省略号表示溢出的文本 */
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 3;
   /* 限制显示的行数为 3 */
-  line-clamp: 1;
+  line-clamp: 3;
   /* 最新浏览器支持 */
-  max-height: 1.5em;
+  max-height: 5em;
   /* 根据行高计算出最多显示的高度 */
 }
 
 .blog_box {
-  padding: 25px;
+  padding: 25px 25px 0 25px;
   /* margin: 10px; */
-  border-bottom: 1px solid #EDEFF2;
+  /* border-bottom: 1px solid #EDEFF2; */
   cursor: pointer;
 }
 

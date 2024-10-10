@@ -8,18 +8,21 @@
             <!-- <p nz-typography style="color: gray;"> {{item.description}} </p> -->
             <p nz-typography class="blog_content"> {{item.content}} </p>
           </div>
-          <img nz-image width="80" height="80" *ngIf="item.image" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback"
-            alt="" />
+          <!-- 决定删除博客的图片功能 -->
+          <!-- <img nz-image width="80" height="80" *ngIf="item.image" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback"
+            alt="" /> -->
         </div>
         <div nz-flex nzAlign="center" nzJustify="space-between" style="margin-top: 5px;">
-          <div>
-            <nz-tag *ngFor="let tag of item.tag">{{ tag }}</nz-tag>
-          </div>
-          <div style="color: gray;" nz-flex nzAlign="center">
+          <div style="color: rgb(200, 200, 200);" nz-flex nzAlign="center" nzGap="small">
             <!-- <span nz-icon nzType="eye" nzTheme="outline">{{ item.views }}&nbsp;</span> -->
             {{ item.date | date:'yyyy-MM-dd HH:mm' }}
+            <nz-divider nzType="vertical"></nz-divider>
+            <ng-container *ngFor="let tag of item.tag">
+              {{ tag }}
+            </ng-container>
           </div>
         </div>
+        <nz-divider style="width: 40%;min-width: 0;margin: 0;margin-top:25px;padding: 0;"></nz-divider>
       </nz-skeleton>
     </div>
     <div class="pagination">
@@ -70,7 +73,7 @@
         </div>
         <nz-divider></nz-divider>
         <div>
-          <h3 nz-typography class="kuaile_text">博客已发布 <span style="color: lightblue;">{{ total }}</span> 篇</h3>
+          <h3 nz-typography class="kuaile_text">文章已发布 <span style="color: lightblue;">{{ total }}</span> 篇</h3>
           <h3 nz-typography class="kuaile_text">总阅读量 <span style="color: lightblue;">{{ totalViews }}</span> </h3>
         </div>
       </div>
