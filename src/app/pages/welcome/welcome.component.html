@@ -106,11 +106,11 @@
   <nz-content>
     <div class="card" nz-flex nzJustify="center" nzAlign="center" nzVertical nzGap="large">
       <div class="header" @SlowDown>
-        <nz-avatar [nzSize]="256" nzSrc="../../../assets/img/再花猫猫头.png" nzShape="square"
+        <nz-avatar [nzSize]="196" nzSrc="../../../assets/img/再花猫猫头.png" nzShape="square"
           style="margin-top: 10px"></nz-avatar>
       </div>
-      <h1 class="title zcool-kuaile-regular" @SlowDown>花墨（测试版）</h1>
-      <h3 nz-typography style="color: red;">请注意：目前网站中所有数据均为测试数据，仅供测试</h3>
+      <h2 class="title zcool-kuaile-regular" @SlowDown>花墨（测试中）</h2>
+      <span nz-typography nzType="secondary">请注意：目前网站中所有数据均为测试数据，不具备真实性</span>
       <div class="buttons" nz-flex nzJustify="center" nzGap="middle" nzAlign="center" @QuickDown>
         <button class="tag-button-main" [routerLink]="['/blog']">
           <span nz-icon nzType="align-left"></span>
@@ -122,11 +122,11 @@
         </button>
         <button class="tag-button-main" [routerLink]="['/travel']">
           <span nz-icon nzType="send"></span>
-          <span class="zcool-kuaile-regular">旅行日记</span>
+          <span class="zcool-kuaile-regular">旅行</span>
         </button>
         <button class="tag-button-main" [routerLink]="['/me']">
           <span nz-icon nzType="user"></span>
-          <span class="zcool-kuaile-regular">关于网站</span>
+          <span class="zcool-kuaile-regular">关于</span>
         </button>
       </div>
       <nz-divider></nz-divider>
@@ -154,22 +154,24 @@
 
       </div>
       <div nz-flex nzVertical nzAlign="center" nzJustify="center" class="webinfo" @SlowUp>
-        <h4 nz-typography>网站运行第
+        <h5 nz-typography>网站运行第
           <strong style="color:#c21f30">{{ data.runDays + 1 }}</strong>
           天
-        </h4>
-        <h4 nz-typography>总访问量
+        </h5>
+        <h5 nz-typography>总访问量
           <strong style="color:#d11a2d">{{ data.visitCount }}</strong>
           次
-        </h4>
-        <h4 nz-typography>文章发布
+        </h5>
+        <h5 nz-typography>文章发布
           <strong style="color:#de1c31">{{ data.total }}</strong>
           篇
-        </h4>
+        </h5>
         <!-- <h4 nz-typography>最后更新于
           <strong style="color:#c45a65">{{ data.lastUpdateTime | date:'yyyy-MM-dd HH:mm' }}</strong>
         </h4> -->
       </div>
+
+      <a @SlowUp href="https://beian.miit.gov.cn/" class="gov" target="_blank">蜀ICP备2024104191号</a>
     </div>
   </nz-content>
 </nz-layout>

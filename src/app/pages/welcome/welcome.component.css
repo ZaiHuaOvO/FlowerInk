@@ -412,3 +412,11 @@ body {
     /* background-color: #fff; */
     /* border-radius: 10px; */
 }
+
+.gov {
+    color: gray
+}
+
+.gov:hover {
+    color: black;
+}
