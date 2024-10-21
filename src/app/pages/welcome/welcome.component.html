@@ -104,7 +104,7 @@
 
 <nz-layout class="app-layout">
   <nz-content>
-    <div class="card" nz-flex nzJustify="center" nzAlign="center" nzVertical nzGap="large">
+    <div class="card" nz-flex nzJustify="center" nzAlign="center" nzVertical nzGap="middle">
       <div class="header" @SlowDown>
         <nz-avatar [nzSize]="196" nzSrc="../../../assets/img/再花猫猫头.png" nzShape="square"
           style="margin-top: 10px"></nz-avatar>
@@ -158,20 +158,27 @@
           <strong style="color:#c21f30">{{ data.runDays + 1 }}</strong>
           天
         </h5>
-        <h5 nz-typography>总访问量
+        <!-- <h5 nz-typography>总访问量
           <strong style="color:#d11a2d">{{ data.visitCount }}</strong>
           次
-        </h5>
-        <h5 nz-typography>文章发布
+        </h5> -->
+        <!-- <h5 nz-typography>文章发布
           <strong style="color:#de1c31">{{ data.total }}</strong>
           篇
-        </h5>
+        </h5> -->
         <!-- <h4 nz-typography>最后更新于
           <strong style="color:#c45a65">{{ data.lastUpdateTime | date:'yyyy-MM-dd HH:mm' }}</strong>
         </h4> -->
       </div>
 
-      <a @SlowUp href="https://beian.miit.gov.cn/" class="gov" target="_blank">蜀ICP备2024104191号</a>
+      <div @SlowUp nz-flex nzVertical nzAlign="center" nzJustify="center" nzGap="small">
+        <a class="gov" href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2024104191号</a>
+        <div>
+          <nz-avatar [nzSize]="16" nzSrc="../../../assets/img/备案图标.png" nzShape="square"></nz-avatar>
+          <a class="gov" href="https://beian.mps.gov.cn/#/query/webSearch?code=51011202000914" rel="noreferrer"
+            target="_blank">川公网安备51011202000914</a>
+        </div>
+      </div>
     </div>
   </nz-content>
 </nz-layout>
