@@ -1,0 +1,16 @@
+<ul @SlowUp style="margin-top:24px">
+  <ng-container *ngFor="let item of Data">
+    <li [ngStyle]="{'--accent-color': getAccentColor(item.tag[0])}">
+      <div class="date">{{ item.date | date:'yyyy-MM-dd' }}</div>
+      <div nz-flex nzAlign="center" nzJustify="space-between">
+        <div nz-flex nzVertical>
+          <div class="title">{{ item.title }}</div>
+          <div class="descr">{{ item.content }}</div>
+        </div>
+        <div>
+          <nz-avatar [nzSize]="64" [nzSrc]="item.image_first[0].url"></nz-avatar>
+        </div>
+      </div>
+    </li>
+  </ng-container>
+</ul>

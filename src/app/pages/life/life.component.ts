@@ -23,6 +23,7 @@ import {
   style,
 } from '@angular/animations';
 import { NzModalService } from 'ng-zorro-antd/modal';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-life',
@@ -35,20 +36,27 @@ export class LifeComponent implements OnInit {
   total = 0;
   loading = true;
   yearData: any[] = [];
+  tagData: any[] = [];
   order = true;
   isOrder = false;
-  tag: string = '';
+  tag: any = '';
+  switchButton = '揍再花';
   @Input('scrollAnimate') animationTrigger: string = '';
-  private isVisible: boolean = false;
+  private isVisible: boolean = true;
   constructor(
     private lifeService: LifeService,
+    private msg: NzMessageService,
     private el: ElementRef,
     private renderer: Renderer2,
     private modal: NzModalService
   ) {
     this.getLifes();
+
     this.lifeService.getYears().subscribe((res: any) => {
       this.yearData = res['data'];
+    });
+    this.lifeService.getLifeTags().subscribe((res: any) => {
+      this.tagData = res['data'];
     });
   }
   getLifes(year?: number): void {
@@ -60,27 +68,13 @@ export class LifeComponent implements OnInit {
         this.loading = false;
       });
   }
+
+  getTags(tag?: any): void {
+    this.msg.info('还没做');
+  }
+
   ngOnInit() {}
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const rect = this.el.nativeElement.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-
-    if (rect.top <= windowHeight && rect.bottom >= 0) {
-      // 如果元素在可视区域内
-      if (!this.isVisible) {
-        this.isVisible = true;
-        this.renderer.addClass(this.el.nativeElement, this.animationTrigger);
-      }
-    } else {
-      // 如果元素在可视区域外
-      if (this.isVisible) {
-        this.isVisible = false;
-        this.renderer.removeClass(this.el.nativeElement, this.animationTrigger);
-      }
-    }
-  }
   getLifeDetail(i: any): void {
     this.modal.create({
       nzTitle: i.title,
@@ -93,5 +87,9 @@ export class LifeComponent implements OnInit {
   orderData(): void {
     this.lifeData.reverse();
     this.order = !this.order;
+  }
+
+  switch(): void {
+    this.switchButton = '骗你的🤡';
   }
 }

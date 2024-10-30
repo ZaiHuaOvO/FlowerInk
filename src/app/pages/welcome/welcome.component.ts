@@ -8,7 +8,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { WelcomeService } from './welcome.service';
-import { BlogResponse } from '../interfaces/blog';
+import { BlogResponse } from '../blogs/interfaces/blog';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { Router } from '@angular/router';
 import {

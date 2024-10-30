@@ -1,218 +1,3 @@
-#timeline {
-    position: relative;
-    margin: 0px auto;
-    padding: 25px;
-    width: 100%;
-    height: 1000vh;
-    box-sizing: border-box;
-}
-
-#timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    width: 2px;
-    height: 1000vh;
-    background: #47443B;
-}
-
-#timeline ul {
-    margin: 0;
-    padding: 0;
-}
-
-#timeline ul li {
-    list-style: none;
-    line-height: normal;
-    position: relative;
-    width: 50%;
-    padding: 20px 40px;
-    box-sizing: border-box;
-}
-
-#timeline ul li:nth-child(odd) {
-    float: left;
-    ;
-    text-align: right;
-    clear: both;
-}
-
-#timeline ul li:nth-child(even) {
-    float: right;
-    ;
-    text-align: left;
-    clear: both;
-}
-
-#timeline ul li:nth-child(odd)::before {
-    content: '';
-    position: absolute;
-    top: 24px;
-    right: -6px;
-    width: 10px;
-    height: 10px;
-    background: rgba(71, 68, 59, 1);
-    border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(71, 68, 59, 0.2);
-}
-
-#timeline ul li:nth-child(even)::before {
-    content: '';
-    position: absolute;
-    top: 24px;
-    left: -4px;
-    width: 10px;
-    height: 10px;
-    background: rgba(71, 68, 59, 1);
-    border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(71, 68, 59, 0.2);
-}
-
-#timeline ul li p {
-    margin: 0;
-    padding: 0;
-    color: rgba(71, 68, 59, 1);
-    display: -webkit-box;
-    /* 使用弹性盒子布局 */
-    -webkit-box-orient: vertical;
-    /* 设置盒子的方向为垂直 */
-    overflow: hidden;
-    /* 隐藏溢出文本 */
-    text-overflow: ellipsis;
-    /* 使用省略号表示溢出的文本 */
-    -webkit-line-clamp: 2;
-    /* 限制显示的行数为 3 */
-    line-clamp: 1;
-    /* 最新浏览器支持 */
-
-}
-
-#timeline ul li p {
-    margin: 10px 0 0;
-    padding: 0;
-}
-
-#timeline ul li .time h4 {
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-}
-
-#timeline ul li:nth-child(odd) .time {
-    position: absolute;
-    top: 10px;
-    right: -135px;
-    margin: 0;
-    padding: 8px 16px;
-    color: black;
-}
-
-#timeline ul li:nth-child(even) .time {
-    position: absolute;
-    top: 10px;
-    left: -135px;
-    margin: 0;
-    padding: 8px 16px;
-    color: black;
-}
-
-.time {
-    span {
-        color: gray;
-        font-weight: bold;
-    }
-}
-
-.combination-wrapper {
-    inline-size: 40rem;
-    padding: 2rem;
-    border: 1px solid #f0f0f0;
-    border-radius: 2px;
-}
-
-
-/* CSS */
-.content {
-    background: #fff;
-    backface-visibility: hidden;
-    border-radius: .375rem;
-    border-style: solid;
-    border-width: .025rem;
-    /* 修改：将边框宽度变更为更细的0.025rem */
-    border-color: #d3d3d3;
-    /* 修改：将边框颜色改为浅灰 */
-    box-sizing: border-box;
-    color: #212121;
-    cursor: pointer;
-    font-family: Circular, Helvetica, sans-serif;
-    font-size: 1.125rem;
-    font-weight: 700;
-    letter-spacing: -.01em;
-    line-height: 1.3;
-    padding: .875rem 1.125rem;
-    text-decoration: none;
-    transform: translateZ(0) scale(1);
-    transition: transform .2s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-.content:not(:disabled):hover {
-    transform: scale(1.03);
-    /* 修改：将鼠标悬停时的缩放效果缩小为1.03 */
-}
-
-.content:not(:disabled):hover:active {
-    transform: scale(1.03) translateY(.125rem);
-    /* 修改：与上面保持一致，缩小效果 */
-}
-
-.content:focus {
-    outline: 0 solid transparent;
-}
-
-.content:focus:before {
-    content: "";
-    left: calc(-1 * .375rem);
-    pointer-events: none;
-    position: absolute;
-    top: calc(-1 * .375rem);
-    transition: border-radius;
-    user-select: none;
-}
-
-.content:focus:not(:focus-visible) {
-    outline: 0 solid transparent;
-}
-
-.content:focus:not(:focus-visible):before {
-    border-width: 0;
-}
-
-.content:not(:disabled):active {
-    transform: translateY(.125rem);
-}
-
-:host ::ng-deep .ant-back-top {
-    bottom: 100px;
-}
-
-:host ::ng-deep .ant-back-top-inner {
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
-    border-radius: 4px;
-    background-color: #fff;
-    color: gray;
-    text-align: center;
-    font-size: 20px;
-}
-
-:host ::ng-deep strong {
-    color: #fff;
-}
-
 .head {
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
@@ -224,75 +9,12 @@
 
 .head-title {
     margin: 0;
-    font-size: 24px;
+    font-size: 28px;
 }
 
 .buttons {
     width: 100%;
-    padding: 12px;
-    margin: 4px;
-}
-
-/* CSS */
-.year-button {
-    height: 50px;
-    background: #fff;
-    backface-visibility: hidden;
-    border-radius: .375rem;
-    border-style: solid;
-    border-width: .125rem;
-    box-sizing: border-box;
-    color: #212121;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Circular, Helvetica, sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: -.01em;
-    line-height: 1.3;
-    padding: .875rem 1.125rem;
-    position: relative;
-    text-align: left;
-    text-decoration: none;
-    transform: translateZ(0) scale(1);
-    transition: transform .2s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-.year-button:not(:disabled):hover {
-    transform: scale(1.05);
-}
-
-.year-button:not(:disabled):hover:active {
-    transform: scale(1.05) translateY(.125rem);
-}
-
-.year-button:focus {
-    outline: 0 solid transparent;
-}
-
-.year-button:focus:before {
-    content: "";
-    left: calc(-1*.375rem);
-    pointer-events: none;
-    position: absolute;
-    top: calc(-1*.375rem);
-    transition: border-radius;
-    user-select: none;
-}
-
-.year-button:focus:not(:focus-visible) {
-    outline: 0 solid transparent;
-}
-
-.year-button:focus:not(:focus-visible):before {
-    border-width: 0;
-}
-
-.year-button:not(:disabled):active {
-    transform: translateY(.125rem);
+    margin: 12px;
 }
 
 .ant-alert-error {
@@ -304,4 +26,70 @@
     padding: 12px;
     text-align: center !important;
     font-size: 24px !important;
+}
+
+/* CSS */
+.search-button {
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    color: #3c4043;
+    cursor: pointer;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    height: 36px;
+    line-height: 27px;
+    min-width: 54px;
+    padding: 0 16px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: pre;
+}
+
+.search-button:hover {
+    border-color: #dadce0;
+    box-shadow: rgba(0, 0, 0, .1) 0 1px 1px;
+    color: #202124;
+}
+
+.search-button:focus {
+    border-color: #000;
+    outline: none;
+}
+
+
+/* CSS */
+.button-13 {
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 8px;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Amazon Ember", sans-serif;
+    font-size: 13px;
+    line-height: 29px;
+    padding: 0 10px 0 11px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    width: 100px;
+}
+
+.button-13:hover {
+    background-color: #f7fafa;
+}
+
+.button-13:focus {
+    border-color: #008296;
+    box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+    outline: 0;
 }

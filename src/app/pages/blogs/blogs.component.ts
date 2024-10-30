@@ -3,7 +3,7 @@ import { BlogsService } from './blogs.service';
 import { API } from '../../services/api';
 import { fallback } from '../../data/data';
 import { QuickUp, SlowUp } from '../../animations/animation';
-import { Blog } from '../interfaces/blog';
+import { Blog } from './interfaces/blog';
 import { Router } from '@angular/router';
 
 @Component({

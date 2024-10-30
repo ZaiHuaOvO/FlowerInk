@@ -16,4 +16,8 @@ export class LifeService {
   getYears(): Observable<object> {
     return this.http.get(API.LIFE_YEAR);
   }
+
+  getLifeTags(): Observable<object> {
+    return this.http.get(API.LIFE_TAG);
+  }
 }
