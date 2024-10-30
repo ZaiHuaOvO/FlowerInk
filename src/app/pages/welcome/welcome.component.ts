@@ -54,6 +54,8 @@ export class WelcomeComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
+    // 网站访问
+    this.welcome.visitWeb().subscribe((res: any) => {});
     // 获取文章数量
     this.welcome.getWebInfo().subscribe((res: any) => {
       this.data = res['data'];
