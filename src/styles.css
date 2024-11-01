@@ -89,3 +89,15 @@ pre {
     font-style: normal;
     color: rgb(36, 36, 36)
 }
+
+
+.ant-card-meta-title {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: '微软雅黑';
+}
+
+.ant-card-meta-description {
+    font-size: 15px;
+    font-family: '微软雅黑';
+}

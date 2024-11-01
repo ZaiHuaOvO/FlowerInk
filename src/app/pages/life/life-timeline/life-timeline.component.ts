@@ -1,5 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { SlowUp } from '../../../animations/animation';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { LifeDialogComponent } from '../life-dialog/life-dialog.component';
 
 @Component({
   selector: 'app-life-timeline',
@@ -10,7 +12,7 @@ import { SlowUp } from '../../../animations/animation';
 export class LifeTimelineComponent implements OnInit {
   @Input() Data: any[] = [];
 
-  constructor() {}
+  constructor(private modal: NzModalService) {}
 
   ngOnInit() {}
 
@@ -25,5 +27,18 @@ export class LifeTimelineComponent implements OnInit {
       default:
         return '#41516C'; // 默认颜色
     }
+  }
+  getLifeDetail(i: any): void {
+    this.modal.create({
+      // nzTitle: '点滴',
+      nzContent: LifeDialogComponent,
+      nzStyle: { width: '30vw' },
+      nzData: i,
+      nzCentered: true,
+      nzKeyboard: true,
+      nzMaskClosable: true,
+      nzClosable: false,
+      nzFooter: null,
+    });
   }
 }

@@ -23,6 +23,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { LifeComponent } from './pages/life/life.component';
 import { TravelComponent } from './pages/travel/travel.component';
 import { LifeTimelineComponent } from './pages/life/life-timeline/life-timeline.component';
+import { LifeDialogComponent } from './pages/life/life-dialog/life-dialog.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -36,6 +37,7 @@ registerLocaleData(zh);
     WelcomeComponent,
     TravelComponent,
     LifeTimelineComponent,
+    LifeDialogComponent,
   ],
   imports: [
     BrowserModule,

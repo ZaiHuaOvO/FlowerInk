@@ -15,7 +15,7 @@
         <div nz-flex nzAlign="center" nzJustify="space-between" style="margin-top: 5px;">
           <div style="color: rgb(200, 200, 200);" nz-flex nzAlign="center" nzGap="small">
             <!-- <span nz-icon nzType="eye" nzTheme="outline">{{ item.views }}&nbsp;</span> -->
-            {{ item.date | date:'yyyy-MM-dd HH:mm' }}
+            {{ item.date | date:'yyyy-MM-dd' }}
             <nz-divider nzType="vertical"></nz-divider>
             <ng-container *ngFor="let tag of item.tag">
               {{ tag }}

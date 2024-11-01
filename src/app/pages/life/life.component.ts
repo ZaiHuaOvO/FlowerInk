@@ -39,7 +39,7 @@ export class LifeComponent implements OnInit {
   tagData: any[] = [];
   order = true;
   isOrder = false;
-  year: any = '';
+  year: any = 0;
   tag: any = '';
   switchButton = '揍再花';
   @Input('scrollAnimate') animationTrigger: string = '';
