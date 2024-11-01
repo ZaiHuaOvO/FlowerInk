@@ -23,6 +23,6 @@ export class WelcomeService {
   }
 
   getWebInfo(): Observable<object> {
-    return this.http.post(API.INFO, {});
+    return this.http.get(API.DAY_INFO);
   }
 }

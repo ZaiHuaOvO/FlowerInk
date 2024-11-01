@@ -7,6 +7,7 @@ export const API = {
   BLOG: '/blog',
   TAG: '/blog/tag',
   INFO: '/site/visit',
+  DAY_INFO: '/blog/info',
   LIFE: '/life',
   LIFE_YEAR: '/life/years',
   LIFE_TAG: '/life/tag',
