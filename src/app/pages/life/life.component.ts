@@ -39,6 +39,7 @@ export class LifeComponent implements OnInit {
   tagData: any[] = [];
   order = true;
   isOrder = false;
+  year: any = '';
   tag: any = '';
   switchButton = '揍再花';
   @Input('scrollAnimate') animationTrigger: string = '';
@@ -59,18 +60,15 @@ export class LifeComponent implements OnInit {
       this.tagData = res['data'];
     });
   }
-  getLifes(year?: number): void {
+  getLifes(): void {
+    this.loading = true;
     this.lifeService
-      .getLifes(this.tag ? this.tag : '', year ? year : 0)
+      .getLifes(this.tag ? this.tag : '', this.year ? this.year : 0)
       .subscribe((res: any) => {
         this.lifeData = res['data'].data;
         this.total = res['data'].count;
         this.loading = false;
       });
-  }
-
-  getTags(tag?: any): void {
-    this.msg.info('还没做');
   }
 
   ngOnInit() {}
@@ -91,5 +89,21 @@ export class LifeComponent implements OnInit {
 
   switch(): void {
     this.switchButton = '骗你的🤡';
+  }
+
+  lifeChanged(e: any): void {
+    this.year = e;
+    this.getLifes();
+  }
+
+  TagChanged(e: any): void {
+    this.tag = e;
+    this.getLifes();
+  }
+
+  ALL(): void {
+    this.year = 0;
+    this.tag = '';
+    this.getLifes();
   }
 }

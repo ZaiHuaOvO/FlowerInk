@@ -2,35 +2,58 @@
   <div class="head-box" nz-flex nzAlign="center" nzJustify="center" nzVertical>
     <h2 class="head-title zcool-kuaile-regular"><strong>再花</strong>和<strong>方方老婆</strong>的生活点滴</h2>
     <div class="buttons">
-      <div class="head-box" nz-flex nzAlign="center" nzJustify="center" nzGap="large">
-        <button class="search-button" role="button" style="background-color: #C6E7FF;" (click)="getLifes(0)">
-          <span>全部</span>
-        </button>
-        <ng-container *ngFor="let year of yearData">
-          <button class="search-button" role="button" style="background-color: #D4F6FF;" (click)="getLifes(year)">
-            <span>{{ year }}年</span>
+      <div class="head-box" nz-flex nzAlign="center" nzJustify="center" nzGap="middle" nzVertical>
+        <div nz-flex nzGap="small">
+          <button class="search-button" role="button" style="background-color: #C6E7FF;" (click)="ALL()">
+            <span>全部</span>
           </button>
-        </ng-container>
-        <ng-container *ngFor="let tag of tagData">
-          <button class="search-button" role="button" style="background-color: #FBFBFB;" (click)="getTags(tag)">
-            <span>{{ tag.label }}</span>
+          <button class="search-button" role="button" style="background-color: #FFDDAE;" (click)="orderData()">
+            <span>
+              {{ order? '倒序': '正序' }}
+            </span>
           </button>
-        </ng-container>
-        <button class="search-button" role="button" style="background-color: #FFDDAE;" (click)="orderData()">
-          <span>
-            {{ order? '倒序': '正序' }}
-          </span>
-        </button>
+        </div>
+        <!-- <div nz-flex nzGap="small">
+          <ng-container *ngFor="let year of yearData">
+            <button class="search-button" role="button" style="background-color: #D4F6FF;" (click)="getLifes(year)">
+              <span>{{ year }}年</span>
+            </button>
+          </ng-container>
+        </div> -->
+
+        <nz-radio-group [(ngModel)]="year" nzButtonStyle="solid" (ngModelChange)="lifeChanged($event)">
+          <div nz-flex nzGap="small">
+            <ng-container *ngFor="let item of yearData">
+              <label class="search-button" nz-radio-button nzValue="{{item}}">{{ item }}年</label>
+            </ng-container>
+          </div>
+        </nz-radio-group>
+        <nz-radio-group [(ngModel)]="tag" nzButtonStyle="solid" (ngModelChange)="TagChanged($event)">
+          <div nz-flex nzGap="small">
+            <ng-container *ngFor="let item of tagData">
+              <label class="search-button" nz-radio-button nzValue="{{item.label}}">{{ item.label }}</label>
+            </ng-container>
+          </div>
+        </nz-radio-group>
+        <!-- <div nz-flex nzGap="small">
+          <ng-container *ngFor="let tag of tagData">
+            <button class="search-button" role="button" style="background-color: #FBFBFB;" (click)="getTags(tag)">
+              <span>{{ tag.label }}</span>
+            </button>
+          </ng-container>
+        </div> -->
       </div>
     </div>
-    <div nz-flex nzAlign="center" nzGap="small">
+    <!-- <div nz-flex nzAlign="center" nzGap="small">
       <span>以下<strong>狗粮警告</strong>，感到不适请➡️</span>
       <button class="button-13" role="button" (click)="switch()">{{ switchButton }}</button>
-    </div>
+    </div> -->
   </div>
 </div>
+<nz-spin [nzTip]="'Loading...'" [nzSpinning]="loading">
+  <app-life-timeline style="width: 100vw;" [Data]="lifeData"></app-life-timeline>
+</nz-spin>
 
-<app-life-timeline [Data]="lifeData"></app-life-timeline>
 
 <nz-back-top [nzTemplate]="tpl" [nzVisibilityHeight]="100">
   <ng-template #tpl>

@@ -69,7 +69,7 @@ export class BlogsComponent implements OnInit, OnDestroy {
     this.loading = true;
     this.BlogsService.getBlogs({
       page: this.pageIndex.toString(),
-      tags: this.selectedTags,
+      tag: this.selectedTags,
     }).subscribe((res: any) => {
       this.blogData = res['data'].data;
       this.blogCount = res['data'].count;
@@ -86,7 +86,7 @@ export class BlogsComponent implements OnInit, OnDestroy {
     }
     this.BlogsService.getBlogs({
       page: this.pageIndex.toString(),
-      tags: this.selectedTags,
+      tag: this.selectedTags,
     }).subscribe((res: any) => {
       this.blogData = res['data'].data;
       this.blogCount = res['data'].count;

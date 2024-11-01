@@ -110,7 +110,7 @@ import { NzImageModule } from 'ng-zorro-antd/image';
     // NzPopconfirmModule,
     NzPopoverModule,
     // NzProgressModule,
-    // NzRadioModule,
+    NzRadioModule,
     // NzRateModule,
     // NzResultModule,
     // NzSelectModule,
