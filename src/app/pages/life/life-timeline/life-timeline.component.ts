@@ -32,7 +32,7 @@ export class LifeTimelineComponent implements OnInit {
     this.modal.create({
       // nzTitle: '点滴',
       nzContent: LifeDialogComponent,
-      nzStyle: { width: '30vw' },
+      nzStyle: { width: '40vw' },
       nzData: i,
       nzCentered: true,
       nzKeyboard: true,

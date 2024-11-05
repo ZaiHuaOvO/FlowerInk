@@ -1,14 +1,10 @@
 <nz-card style="width:100%;" [nzActions]="[img]">
-  <nz-card-meta [nzTitle]="nzModalData.title" [nzDescription]="nzModalData.content"
-    [nzAvatar]="avatarTemplate"></nz-card-meta>
+  <nz-card-meta [nzTitle]="'「'+nzModalData.title+'」'" [nzDescription]="nzModalData.content + ''"></nz-card-meta>
 </nz-card>
-<ng-template #avatarTemplate>
-  <nz-avatar nzSize="large" nzSrc="../../../../assets/img/再花猫猫头.png"></nz-avatar>
-</ng-template>
 <ng-template #img>
-  <nz-image-group nz-flex nzGap="large" nzWrap="wrap" style="padding: 12px">
+  <nz-image-group nz-flex nzGap="small" nzWrap="wrap" nzJustify="space-between" style="padding: 12px">
     <ng-container *ngFor="let item of nzModalData.image">
-      <img class="life_img" nz-image [nzSrc]="item.url" width="100px">
+      <img class="life_img" nz-image [nzSrc]="item.url" width="30%">
     </ng-container>
   </nz-image-group>
 </ng-template>

@@ -51,6 +51,7 @@ export class LifeComponent implements OnInit {
     private renderer: Renderer2,
     private modal: NzModalService
   ) {
+    this.msg.info('检测到狗粮打击，如有不适请及时关闭🌸');
     this.getLifes();
 
     this.lifeService.getYears().subscribe((res: any) => {

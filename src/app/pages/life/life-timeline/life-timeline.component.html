@@ -5,8 +5,13 @@
       <div class="date"> {{ item.date | date:'yyyy-MM-dd' }} 「{{item.tag ? item.tag[0] : item.tags}}」</div>
       <div nz-flex nzAlign="center" nzJustify="space-between">
         <div nz-flex nzVertical>
-          <div class="title">{{ item.title }}</div>
-          <div class="descr">{{ item.content }}</div>
+          <div class="title">
+            <span nz-typography>{{ item.title }}</span>
+          </div>
+          <div class="descr">
+            <p style="font-size: 14px !important;color:rgb(100, 100, 100)" nz-typography nzEllipsis
+              [nzContent]="item.content" [nzEllipsisRows]="3"></p>
+          </div>
         </div>
         <div>
           <nz-avatar [nzSize]="64" [nzSrc]="item.image_first[0].url"></nz-avatar>
