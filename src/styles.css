@@ -103,4 +103,5 @@ pre {
     font-family: '微软雅黑';
     font-weight: 400;
     color: rgb(100, 100, 100);
+    white-space: pre-line
 }
