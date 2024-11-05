@@ -6,7 +6,7 @@
           <div nz-flex [nzVertical]="true" nzJustify="center" style="width: 100%;">
             <h4 nz-typography> {{item.title}} </h4>
             <!-- <p nz-typography style="color: gray;"> {{item.description}} </p> -->
-            <p nz-typography class="blog_content"> {{item.content}} </p>
+            <p class="blog_content" nz-typography nzEllipsis [nzContent]="item.content" [nzEllipsisRows]="2"></p>
           </div>
           <!-- 决定删除博客的图片功能 -->
           <!-- <img nz-image width="80" height="80" *ngIf="item.image" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback"
