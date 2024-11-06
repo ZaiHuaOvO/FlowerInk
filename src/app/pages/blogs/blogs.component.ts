@@ -5,6 +5,7 @@ import { fallback } from '../../data/data';
 import { QuickUp, SlowUp } from '../../animations/animation';
 import { Blog } from './interfaces/blog';
 import { Router } from '@angular/router';
+import { WindowService } from '../../services/window.service';
 
 @Component({
   selector: 'app-blogs',
@@ -24,11 +25,17 @@ export class BlogsComponent implements OnInit, OnDestroy {
   totalViews: number = 0;
   selectedTags: string[] = [];
   private vantaEffect: any;
+  isMobile: boolean = false;
   constructor(
     private BlogsService: BlogsService,
+    private window: WindowService,
     private elementRef: ElementRef,
     private router: Router
   ) {
+    this.window.isMobile$.subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
+
     this.BlogsService.getBlogs({
       page: this.pageIndex,
     }).subscribe((res: any) => {
