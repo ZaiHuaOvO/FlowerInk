@@ -52,6 +52,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     },
   ];
 
+  routeText = '';
   constructor(
     private renderer: Renderer2,
     private router: Router,
@@ -70,6 +71,19 @@ export class AppComponent implements AfterViewInit, OnInit {
       .subscribe((event: NavigationEnd) => {
         // 检查当前路由路径是否为首页
         this.isHomePage = event.urlAfterRedirects === '/home';
+        switch (event.urlAfterRedirects) {
+          case '/blog':
+            this.routeText = ' / 博客';
+            break;
+          case '/life':
+            this.routeText = ' / 点滴';
+            break;
+          case '/me':
+            this.routeText = ' / 关于';
+            break;
+          default:
+            break;
+        }
       });
   }
 

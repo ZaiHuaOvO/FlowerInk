@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { QuickUp, SlowUp } from '../../animations/animation';
+import { WindowService } from '../../services/window.service';
 interface TimelineEntry {
   date: string;
   content: {
@@ -280,4 +281,10 @@ export class MeComponent {
       ],
     },
   ];
+  isMobile: boolean = false;
+  constructor(private window: WindowService) {
+    this.window.isMobile$.subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
+  }
 }

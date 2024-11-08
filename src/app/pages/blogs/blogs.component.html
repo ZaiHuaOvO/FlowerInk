@@ -1,4 +1,4 @@
-<div class="content" nz-flex [nzVertical]="false" nzJustify="center">
+<div class="content" nz-flex [nzVertical]="false" nzJustify="center" *ngIf="!isMobile">
   <div class="blog" @QuickUp>
     <div *ngFor="let item of blogData" class="blog_box" (click)="Detail(item)">
       <nz-skeleton [nzActive]="true" [nzLoading]="loading">
@@ -65,6 +65,34 @@
     </div>
   </div>
 </div>
+
+<div class="content" nz-flex [nzVertical]="false" nzJustify="center" *ngIf="isMobile">
+  <div class="blog_mobile" @QuickUp nz-flex nzVertical nzGap="small">
+    <div *ngFor="let item of blogData" class="blog_card_mobile" (click)="Detail(item)">
+      <div class="combination-wrapper" nz-flex [nzGap]="'midlle'" nzAlign="center">
+        <div nz-flex [nzVertical]="true" nzJustify="center" style="width: 100%;">
+          <h4 nz-typography> {{item.title}} </h4>
+          <p class="blog_content" nz-typography nzEllipsis [nzContent]="item.content" [nzEllipsisRows]="2"></p>
+        </div>
+      </div>
+      <div nz-flex nzAlign="center" nzJustify="space-between" style="margin-top: 5px;">
+        <div style="color: rgb(200, 200, 200);" nz-flex nzAlign="center" nzGap="small">
+          {{ item.date | date:'yyyy-MM-dd' }}
+          <nz-divider nzType="vertical"></nz-divider>
+          <ng-container *ngFor="let tag of item.tag">
+            {{ tag }}
+          </ng-container>
+        </div>
+      </div>
+      <nz-divider style="width: 40%;min-width: 0;margin: 0;margin-top:25px;padding: 0;"></nz-divider>
+    </div>
+    <div class="pagination">
+      <nz-pagination [nzPageIndex]="pageIndex" [nzTotal]="blogCount" nzSimple
+        (nzPageIndexChange)="pageIndexChange($event)"></nz-pagination>
+    </div>
+  </div>
+</div>
+
 <nz-back-top [nzTemplate]="tpl" [nzVisibilityHeight]="100">
   <ng-template #tpl>
     <span nz-icon nzType="rocket" nzTheme="outline" style="font-size: 48px;"></span>

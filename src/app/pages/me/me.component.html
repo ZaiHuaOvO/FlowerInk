@@ -1,6 +1,6 @@
 <div class="text-content" nz-flex nzAlign="center" nzJustify="start" nzVertical @QuickUp>
-    <div class="text-box" nz-flex nzVertical="false">
-        <div class="text">
+    <div class="text-box" nz-flex nzVertical="false" *ngIf="!isMobile">
+        <div class=" text">
             <article nz-typography>
                 <h3 nz-typography>关于我</h3>
                 <p nz-typography>
@@ -52,8 +52,55 @@
         </div>
     </div>
 
+    <div class="text-box-mobile" nz-flex nzVertical="false" *ngIf="isMobile">
+        <article nz-typography>
+            <h3 nz-typography>关于我</h3>
+            <p nz-typography>
+                大家好，我叫再花，一个练习时长三年半的前端开发练习生。
+            </p>
+            <p nz-typography>平时的爱好除了陪老婆就是玩游戏，偶尔会上班摸鱼的时候写写自己的项目。</p>
+            <h3 nz-typography>关于网站</h3>
+            <p nz-typography>花墨是一个前后端分离的个人网站，主要用于分享「技术文章」和「日常点滴」</p>
+            <p nz-typography>花墨，含义是<strong>“再花挥洒墨水”</strong>，是我希望我能尽情实现自己“提笔书写记录”爱好的地方</p>
+            <p nz-typography><strong>网站源代码是完全开源的</strong>，后端项目由于安全性考虑则不会公开</p>
+            <p nz-typography>欢迎对网站提出任何建议，也欢迎学习交流，在首页可以找到我的联系方式</p>
+            <h3 nz-typography>技术栈</h3>
+            <ul>
+                <li>
+                    前端：
+                    <span nz-typography><code>Angular 18.1.3</code> <code>组件库：NG-ZORRO</code></span>
+                </li>
+                <li>
+                    后端：
+                    <!-- <nz-avatar [nzSize]="12" nzSrc="https://nestjs.bootcss.com/img/logo.png"
+                            nzShape="square"></nz-avatar> -->
+                    <span nz-typography><code>NestJs 10.3.1</code></span>
+                </li>
+                <li>
+                    数据库：
+                    <span nz-typography><code>MySQL</code></span>
+                </li>
+            </ul>
+            <h3 nz-typography>项目代码</h3>
+            <p nz-typography>
+                <a href="https://github.com/ZaiHuaOvO/FlowerInk" target="_blank">
+                    <span nz-icon nzType="github"></span>
+                    花墨</a>
+            </p>
+            <h3 nz-typography>TODO LIST（按优先级排序）</h3>
+            <nz-timeline>
+                <nz-timeline-item>手机端开发</nz-timeline-item>
+                <nz-timeline-item>网站性能、项目结构优化，引入SSR和水合</nz-timeline-item>
+                <nz-timeline-item>开发日志模块：将网站开发日志独立出来，并对接接口和ERP</nz-timeline-item>
+                <nz-timeline-item>网站全局搜索功能</nz-timeline-item>
+                <nz-timeline-item>为Markdown编辑器添加图片引用功能</nz-timeline-item>
+                <nz-timeline-item>旅行模块：记录每次旅行的经历、见闻、趣事、照片</nz-timeline-item>
+                <nz-timeline-item>游戏模块：撰写游戏白金攻略（非剧透和常规两种攻略）</nz-timeline-item>
+            </nz-timeline>
+        </article>
+    </div>
 
-    <div class="text-box" nz-flex nzVertical>
+    <div class="text-box" nz-flex nzVertical *ngIf="!isMobile">
         <h3 nz-typography style="text-align: center;"> 网站开发日志 </h3>
         <div class="timeline">
             <div class="entry">

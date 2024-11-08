@@ -73,3 +73,20 @@
   text-align: center;
   margin: 25px;
 }
+
+
+.blog_mobile {
+  width: 95%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 10px;
+  overflow-y: hidden;
+}
+
+.blog_card_mobile {
+  border-radius: 10px;
+  background-color: white;
+  overflow-y: hidden;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 25px 25px 0 25px;
+}

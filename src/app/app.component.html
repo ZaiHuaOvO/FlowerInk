@@ -38,7 +38,7 @@
         <div class="head" nz-flex [nzVertical]="false" nzAlign="center" nzJustify="center" nzGap="small"
           [routerLink]="['/']" style="height: 64px;">
           <nz-avatar nzSize="small" nzIcon="user" nzSrc="../assets/img/猫娘.jpg" style="cursor: pointer;"></nz-avatar>
-          <h3 class="blog_title kuaile_text" nz-typography style="cursor: pointer;">花墨</h3>
+          <h3 class="blog_title kuaile_text" nz-typography style="cursor: pointer;">花墨{{routeText}}</h3>
         </div>
 
         <div nz-flex nzAlign="center" nzJustify="center" (click)="isCollapsed = !isCollapsed" nzGap="small"
