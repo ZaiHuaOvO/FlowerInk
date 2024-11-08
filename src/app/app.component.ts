@@ -36,6 +36,11 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   data = [
     {
+      title: '首页',
+      router: '/home',
+      content: '网站导航和联系方式',
+    },
+    {
       title: '文章',
       router: '/blog',
       content: '发布技术相关的博客',
@@ -72,6 +77,9 @@ export class AppComponent implements AfterViewInit, OnInit {
         // 检查当前路由路径是否为首页
         this.isHomePage = event.urlAfterRedirects === '/home';
         switch (event.urlAfterRedirects) {
+          case '/home':
+            this.routeText = ' / 首页';
+            break;
           case '/blog':
             this.routeText = ' / 博客';
             break;

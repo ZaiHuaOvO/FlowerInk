@@ -24,6 +24,8 @@ import {
 } from '@angular/animations';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { WindowService } from '../../services/window.service';
+import { LifeDialogComponent } from './life-dialog/life-dialog.component';
 
 @Component({
   selector: 'app-life',
@@ -44,13 +46,18 @@ export class LifeComponent implements OnInit {
   switchButton = '揍再花';
   @Input('scrollAnimate') animationTrigger: string = '';
   private isVisible: boolean = true;
+  isMobile: boolean = false;
   constructor(
     private lifeService: LifeService,
     private msg: NzMessageService,
     private el: ElementRef,
     private renderer: Renderer2,
-    private modal: NzModalService
+    private modal: NzModalService,
+    private window: WindowService
   ) {
+    this.window.isMobile$.subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
     this.msg.info('检测到狗粮打击，如有不适请及时关闭🌸');
     this.getLifes();
 
@@ -73,15 +80,6 @@ export class LifeComponent implements OnInit {
   }
 
   ngOnInit() {}
-
-  getLifeDetail(i: any): void {
-    this.modal.create({
-      nzTitle: i.title,
-      nzContent: i.content,
-      nzCloseIcon: '',
-      nzFooter: null,
-    });
-  }
 
   orderData(): void {
     this.lifeData.reverse();
@@ -106,5 +104,32 @@ export class LifeComponent implements OnInit {
     this.year = 0;
     this.tag = '';
     this.getLifes();
+  }
+
+  getAccentColor(tag: string): string {
+    switch (tag) {
+      case '日常':
+        return '#000B58'; // 淡蓝色
+      case '美食':
+        return '#FFB26F'; // 橘色
+      case '事件':
+        return '#A64D79'; // 淡红色
+      default:
+        return '#1A1A1D'; // 默认颜色
+    }
+  }
+
+  getLifeDetailMobile(i: any): void {
+    this.modal.create({
+      // nzTitle: '点滴',
+      nzContent: LifeDialogComponent,
+      nzStyle: { width: '100vw' },
+      nzData: i,
+      nzCentered: true,
+      nzKeyboard: true,
+      nzMaskClosable: true,
+      nzClosable: false,
+      nzFooter: null,
+    });
   }
 }

@@ -9,7 +9,7 @@
 
 .head-title {
     margin: 0;
-    font-size: 28px;
+    /* font-size: 28px; */
 }
 
 .buttons {
@@ -95,4 +95,24 @@
     border-color: #008296;
     box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
     outline: 0;
+}
+
+.life_img {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    padding: 5px;
+    object-fit: cover;
+    width: 30%;
+    aspect-ratio: 1;
+    /* 保持宽高比为1:1 */
+}
+
+.life_box_mobile {
+    padding: 24px;
+    margin: 4px;
+}
+
+.img_card_mobile {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    border-radius: 10px;
+    width: 100%;
 }
