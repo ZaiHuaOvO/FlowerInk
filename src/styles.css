@@ -105,3 +105,7 @@ pre {
     color: rgb(100, 100, 100);
     white-space: pre-line
 }
+
+.ant-layout-header {
+    background-color: #fff;
+}

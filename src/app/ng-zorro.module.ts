@@ -98,7 +98,7 @@ import { NzImageModule } from 'ng-zorro-antd/image';
     // NzInputModule,
     // NzInputNumberModule,
     NzLayoutModule,
-    // NzListModule,
+    NzListModule,
     // NzMentionModule,
     // NzMenuModule,
     NzMessageModule,

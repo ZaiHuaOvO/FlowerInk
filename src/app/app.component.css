@@ -1,3 +1,14 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* 禁止水平滚动 */
+  width: 100%;
+  /* 保证宽度自适应 */
+  box-sizing: border-box;
+}
+
 :host {
   display: flex;
   text-rendering: optimizeLegibility;
@@ -6,8 +17,13 @@
 }
 
 .app-layout {
+  width: 100%;
+  /* 保证布局的宽度占满屏幕 */
+  max-width: 100vw;
+  /* 防止内容超出屏幕宽度 */
   min-height: 100vh;
   z-index: 999;
+  background-color: #fff;
 }
 
 .menu-sidebar {
@@ -69,6 +85,15 @@ nz-header {
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
+
+.app-header_mobile {
+  position: relative;
+  height: 64px;
+  padding: 0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+}
+
 
 nz-content {
   margin-top: 12px;

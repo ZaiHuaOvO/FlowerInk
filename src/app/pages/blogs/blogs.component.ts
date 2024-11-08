@@ -28,9 +28,9 @@ export class BlogsComponent implements OnInit, OnDestroy {
   isMobile: boolean = false;
   constructor(
     private BlogsService: BlogsService,
-    private window: WindowService,
     private elementRef: ElementRef,
-    private router: Router
+    private router: Router,
+    private window: WindowService
   ) {
     this.window.isMobile$.subscribe((isMobile) => {
       this.isMobile = isMobile;

@@ -1,9 +1,9 @@
 <!-- 首页 -->
 <app-welcome *ngIf="isHomePage"></app-welcome>
 <nz-layout class="app-layout" *ngIf="!isHomePage">
-  <nz-header @QuickDown>
-    <div style="background: #fff" class="app-header" nz-flex [nzVertical]="false" [nzJustify]="'space-between'"
-      [nzAlign]="'center'">
+  <nz-header @QuickDown [ngStyle]="{ height: isCollapsed ? '54px' : (data.length * 53 + 54) + 'px'}">
+    <div *ngIf="!isMobile" style="background: #fff" class="app-header" nz-flex [nzVertical]="false"
+      [nzJustify]="'space-between'" [nzAlign]="'center'">
       <div class="head" nz-flex [nzVertical]="false" nzAlign="center" nzJustify="center" [nzGap]="'middle'"
         [routerLink]="['/']">
         <nz-avatar nzSize="small" nzIcon="user" nzSrc="../assets/img/猫娘.jpg" style="cursor: pointer;"></nz-avatar>
@@ -33,10 +33,35 @@
         </li>
       </ul>
     </div>
+    <div *ngIf="isMobile" class="app-header_mobile" nz-flex nzVertical>
+      <div nz-flex [nzVertical]="false" [nzJustify]="'space-between'" nzAlign="center">
+        <div class="head" nz-flex [nzVertical]="false" nzAlign="center" nzJustify="center" nzGap="small"
+          [routerLink]="['/']" style="height: 64px;">
+          <nz-avatar nzSize="small" nzIcon="user" nzSrc="../assets/img/猫娘.jpg" style="cursor: pointer;"></nz-avatar>
+          <h3 class="blog_title kuaile_text" nz-typography style="cursor: pointer;">花墨</h3>
+        </div>
+
+        <div nz-flex nzAlign="center" nzJustify="center" (click)="isCollapsed = !isCollapsed" nzGap="small"
+          style="font-size: 16px;margin-right: 12px;">
+          <span class="blog_title kuaile_text" nz-typography>导航</span>
+          <span nz-icon nzType="align-left" nzTheme="outline"></span>
+        </div>
+      </div>
+      <div class="route">
+        <nz-list nzBordered>
+          @for (item of data; track item) {
+          <nz-list-item [routerLink]="item.router" (click)="isCollapsed = true">
+            <h4 nz-typography class="blog_title kuaile_text">「{{ item.title }}」</h4>
+            <span nz-typography nzType="secondary">{{ item.content }}</span>
+          </nz-list-item>
+          }
+        </nz-list>
+      </div>
+    </div>
   </nz-header>
   <!-- <div class="overlay"></div>  -->
 
   <nz-content>
-    <router-outlet> </router-outlet>
+    <router-outlet></router-outlet>
   </nz-content>
 </nz-layout>
