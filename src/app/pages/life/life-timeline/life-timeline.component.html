@@ -2,7 +2,7 @@
   <ng-container *ngFor="let item of Data">
     <li [ngStyle]="{'--accent-color': getAccentColor(item.tag ? item.tag[0] : item.tags)}"
       (click)="getLifeDetail(item)">
-      <div class="date"> {{ item.date | date:'yyyy-MM-dd' }} 「{{item.tag ? item.tag[0] : item.tags}}」</div>
+      <div class="date"> {{ item.date | date: 'yyyy年M月d日' }} 「{{item.tag ? item.tag[0] : item.tags}}」</div>
       <div nz-flex nzAlign="center" nzJustify="space-between">
         <div nz-flex nzVertical>
           <div class="title">

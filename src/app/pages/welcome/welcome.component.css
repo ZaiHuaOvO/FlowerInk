@@ -420,3 +420,8 @@ body {
 .gov:hover {
     color: black;
 }
+
+.ant-divider-horizontal {
+    min-width: 30%;
+    width: 30%;
+}

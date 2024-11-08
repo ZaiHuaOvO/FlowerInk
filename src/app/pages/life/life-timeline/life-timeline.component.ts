@@ -19,13 +19,13 @@ export class LifeTimelineComponent implements OnInit {
   getAccentColor(tag: string): string {
     switch (tag) {
       case '日常':
-        return '#B3E5FC'; // 淡蓝色
+        return '#000B58'; // 淡蓝色
       case '美食':
-        return '#FFAB91'; // 橘色
+        return '#FFB26F'; // 橘色
       case '事件':
-        return '#FFCDD2'; // 淡红色
+        return '#A64D79'; // 淡红色
       default:
-        return '#41516C'; // 默认颜色
+        return '#1A1A1D'; // 默认颜色
     }
   }
   getLifeDetail(i: any): void {

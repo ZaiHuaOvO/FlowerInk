@@ -2,9 +2,13 @@
   <nz-card-meta [nzTitle]="'「'+nzModalData.title+'」'" [nzDescription]="nzModalData.content + ''"></nz-card-meta>
 </nz-card>
 <ng-template #img>
-  <nz-image-group nz-flex nzGap="small" nzWrap="wrap" nzJustify="space-between" style="padding: 12px">
-    <ng-container *ngFor="let item of nzModalData.image">
-      <img class="life_img" nz-image [nzSrc]="item.url" width="30%">
-    </ng-container>
-  </nz-image-group>
+  <div nz-flex nzVertical>
+    <nz-image-group nz-flex nzGap="small" nzWrap="wrap" nzJustify="space-between" style="padding: 12px">
+      <ng-container *ngFor="let item of nzModalData.image">
+        <img class="life_img" nz-image [nzSrc]="item.url">
+      </ng-container>
+    </nz-image-group>
+    <h5 nz-typography nzType="secondary" style="text-align: end;margin-right: 25px;">{{ nzModalData.date | date:
+      'yyyy年M月d日' }} </h5>
+  </div>
 </ng-template>
