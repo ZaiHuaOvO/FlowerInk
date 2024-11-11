@@ -123,3 +123,7 @@ pre {
     cursor: pointer;
     padding: 0 !important;
 }
+
+.ant-list-items {
+    background-color: #fff;
+}
