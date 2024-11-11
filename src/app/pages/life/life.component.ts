@@ -107,17 +107,6 @@ export class LifeComponent implements OnInit {
 
   ngOnInit() {}
 
-  orderData(): void {
-    this.lifeDataV2 = this.order
-      ? this.groupByYear(this.lifeData).reverse()
-      : this.groupByYear(this.lifeData);
-    this.lifeDataV2.forEach((item) => {
-      item.active = false;
-    });
-    this.lifeDataV2[0].active = true;
-    this.order = !this.order;
-  }
-
   switch(): void {
     this.switchButton = '骗你的🤡';
   }

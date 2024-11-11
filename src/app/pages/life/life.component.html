@@ -13,18 +13,13 @@
           <nz-radio-group [(ngModel)]="tag" nzButtonStyle="solid" (ngModelChange)="TagChanged($event)">
             <div nz-flex nzGap="small">
               <ng-container *ngFor="let item of tagData">
-                <label class="search-button" style="color: white;"
+                <label class="search-button" style="color: white;" *ngIf="item.label !== '事件'"
                   [ngStyle]="{'background-color': getAccentColor(item.label)}" nz-radio-button
                   nzValue="{{item.label}}">{{
                   item.label }}</label>
               </ng-container>
             </div>
           </nz-radio-group>
-          <button class="search-button" role="button" style="background-color: #fff;" (click)="orderData()">
-            <span>
-              {{ order? '倒序': '正序' }}
-            </span>
-          </button>
         </div>
         <!-- <div nz-flex nzGap="small">
           <ng-container *ngFor="let year of yearData">
@@ -50,27 +45,38 @@
 <nz-spin [nzTip]="'Loading...'" [nzSpinning]="loading">
   <!-- <app-life-timeline style="width: 100vw;" [Data]="lifeData" *ngIf="!isMobile"></app-life-timeline> -->
 
-  <nz-collapse nzAccordion *ngIf="!isMobile" [nzBordered]="false" [nzGhost]="true">
+  <nz-collapse nzAccordion *ngIf="!isMobile" [nzBordered]="false" [nzGhost]="true" style="max-width: 1000px;">
     @for (life of lifeDataV2 ; track life;let i = $index) {
     <nz-collapse-panel [nzHeader]="CollapseHeader" [nzActive]="life.active" [nzShowArrow]="false"
       [@fadeInUp]="{ value: '', params: { timing: 200 + i * 200 } }">
       <nz-timeline>
         <ng-container *ngFor="let item of life.data">
-          <nz-timeline-item [nzColor]="getAccentColor(item.tag[0])" [nzLabel]="DateLabel">
+          <nz-timeline-item [nzColor]="getAccentColor(item.tag[0])" [nzLabel]="DateLabel"
+            [nzPosition]="item.tag[0] == '事件' ? 'right' : 'left'">
 
             <nz-card class="img_card" (click)="getLifeDetail(item)" @SlowUp>
               <nz-card-meta [nzTitle]="LifeTtile" [nzDescription]="contentTemplate"></nz-card-meta>
             </nz-card>
             <ng-template #contentTemplate>
-              <div nz-flex nzAlign="start" nzJustify="space-between">
+              <div nz-flex nzAlign="start" nzJustify="space-between" *ngIf="item.tag[0] == '事件';else elseTemplate">
+                <nz-avatar style="min-width: 48px;" [nzSize]="48" [nzSrc]="item.image_first[0].url"></nz-avatar>
                 <p style="font-size: 14px !important;color:rgb(100, 100, 100);margin: 0;" nz-typography nzEllipsis
                   [nzContent]="item.content" [nzEllipsisRows]="2"></p>
-                <nz-avatar style="min-width: 48px;" [nzSize]="48" [nzSrc]="item.image_first[0].url"></nz-avatar>
               </div>
+              <ng-template #elseTemplate>
+                <div nz-flex nzAlign="start" nzJustify="space-between">
+                  <p style="font-size: 14px !important;color:rgb(100, 100, 100);margin: 0;" nz-typography nzEllipsis
+                    [nzContent]="item.content" [nzEllipsisRows]="2"></p>
+                  <nz-avatar style="min-width: 48px;" [nzSize]="48" [nzSrc]="item.image_first[0].url"></nz-avatar>
+                </div>
+              </ng-template>
             </ng-template>
             <ng-template #LifeTtile>
-              <h4 nz-typography [ngStyle]="{'color': getAccentColor(item.tag[0])}"><strong>「{{ item.title
-                  }}」</strong></h4>
+              <h4 nz-typography
+                [ngStyle]="{'color': getAccentColor(item.tag[0]) , 'text-align': item.tag[0] == '事件' ? 'right' : 'left'}">
+                <strong>「{{ item.title
+                  }}」</strong>
+              </h4>
             </ng-template>
 
           </nz-timeline-item>
