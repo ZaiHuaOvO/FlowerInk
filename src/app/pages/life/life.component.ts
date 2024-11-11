@@ -97,6 +97,9 @@ export class LifeComponent implements OnInit {
         this.lifeData = res['data'].data;
         this.total = res['data'].count;
         this.lifeDataV2 = this.groupByYear(this.lifeData);
+        this.lifeDataV2.forEach((item) => {
+          item.active = false;
+        });
         this.lifeDataV2[0].active = true;
         this.loading = false;
       });
@@ -105,7 +108,13 @@ export class LifeComponent implements OnInit {
   ngOnInit() {}
 
   orderData(): void {
-    this.lifeDataV2.reverse();
+    this.lifeDataV2 = this.order
+      ? this.groupByYear(this.lifeData).reverse()
+      : this.groupByYear(this.lifeData);
+    this.lifeDataV2.forEach((item) => {
+      item.active = false;
+    });
+    this.lifeDataV2[0].active = true;
     this.order = !this.order;
   }
 
