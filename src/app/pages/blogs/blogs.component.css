@@ -8,9 +8,9 @@
   height: auto;
   margin-top: 10px;
   border-radius: 10px;
-  background-color: white;
+  background-color: #F7F7F7;
   overflow-y: hidden;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px; */
 }
 
 .data {
@@ -20,7 +20,7 @@
 .me,
 .menu {
   padding: 20px;
-  margin-top: 10px;
+  margin-top: 11px;
   margin-left: 10px;
   width: 100%;
   border-radius: 10px;
@@ -55,10 +55,15 @@
 }
 
 .blog_box {
-  padding: 25px 25px 0 25px;
-  /* margin: 10px; */
+  padding: 25px 25px 20px 25px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  /* overflow-y: hidden; */
+  border-radius: 10px;
   /* border-bottom: 1px solid #EDEFF2; */
   cursor: pointer;
+  /* min-height: 158px; */
+  margin: 1px;
 }
 
 .blog_box:hover {

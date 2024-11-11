@@ -5,11 +5,13 @@
     /* background-color: #fff; */
     border-radius: 10px;
     margin: 4px;
+
 }
 
 .head-title {
     margin: 0;
     /* font-size: 28px; */
+    text-align: center;
 }
 
 .buttons {

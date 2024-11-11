@@ -1,29 +1,22 @@
 <div class="content" nz-flex [nzVertical]="false" nzJustify="center" *ngIf="!isMobile">
-  <div class="blog" @QuickUp>
+  <div class="blog" @QuickUp nz-flex nzVertical nzGap="small">
     <div *ngFor="let item of blogData" class="blog_box" (click)="Detail(item)">
-      <nz-skeleton [nzActive]="true" [nzLoading]="loading">
-        <div class="combination-wrapper" nz-flex [nzGap]="'large'" nzAlign="center">
-          <div nz-flex [nzVertical]="true" nzJustify="center" style="width: 100%;">
-            <h4 nz-typography> {{item.title}} </h4>
-            <!-- <p nz-typography style="color: gray;"> {{item.description}} </p> -->
-            <p class="blog_content" nz-typography nzEllipsis [nzContent]="item.content" [nzEllipsisRows]="2"></p>
-          </div>
-          <!-- 决定删除博客的图片功能 -->
-          <!-- <img nz-image width="80" height="80" *ngIf="item.image" [nzSrc]="baseUrl + item.image" [nzFallback]="fallback"
-            alt="" /> -->
+      <div class="combination-wrapper" nz-flex [nzGap]="'middle'" nzAlign="center">
+        <div nz-flex [nzVertical]="true" nzJustify="center" [nzGap]="'middle'" style="width: 100%;">
+          <h4 nz-typography> {{item.title}} </h4>
+          <p class="blog_content" nz-typography nzEllipsis [nzContent]="item.content" [nzEllipsisRows]="2"></p>
         </div>
-        <div nz-flex nzAlign="center" nzJustify="space-between" style="margin-top: 5px;">
-          <div style="color: rgb(200, 200, 200);" nz-flex nzAlign="center" nzGap="small">
-            <!-- <span nz-icon nzType="eye" nzTheme="outline">{{ item.views }}&nbsp;</span> -->
-            {{ item.date | date:'yyyy-MM-dd' }}
-            <nz-divider nzType="vertical"></nz-divider>
-            <ng-container *ngFor="let tag of item.tag">
-              {{ tag }}
-            </ng-container>
-          </div>
+      </div>
+      <div nz-flex nzAlign="center" nzJustify="space-between" style="margin-top: 5px;">
+        <div style="color: rgb(200, 200, 200);" nz-flex nzAlign="center" nzGap="small">
+          {{ item.date | date:'yyyy-MM-dd' }}
+          <nz-divider nzType="vertical"></nz-divider>
+          <ng-container *ngFor="let tag of item.tag">
+            {{ tag }}
+          </ng-container>
         </div>
-        <nz-divider style="width: 40%;min-width: 0;margin: 0;margin-top:25px;padding: 0;"></nz-divider>
-      </nz-skeleton>
+      </div>
+      <!-- <nz-divider style="width: 40%;min-width: 0;margin: 0;margin-top:25px;padding: 0;"></nz-divider> -->
     </div>
     <div class="pagination">
       <nz-pagination [nzPageIndex]="pageIndex" [nzTotal]="blogCount" nzSimple
@@ -93,8 +86,4 @@
   </div>
 </div>
 
-<nz-back-top [nzTemplate]="tpl" [nzVisibilityHeight]="100">
-  <ng-template #tpl>
-    <span nz-icon nzType="rocket" nzTheme="outline" style="font-size: 48px;"></span>
-  </ng-template>
-</nz-back-top>
+<nz-back-top></nz-back-top>
