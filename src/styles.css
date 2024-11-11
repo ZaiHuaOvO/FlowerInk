@@ -95,7 +95,7 @@ pre {
     font-size: 20px;
     font-weight: bold;
     font-family: '微软雅黑';
-    text-align: center;
+    text-align: start;
 }
 
 .ant-card-meta-description {
@@ -107,5 +107,22 @@ pre {
 }
 
 .ant-layout-header {
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.ant-collapse-header-text {
+    text-align: center;
+}
+
+.ant-typography {
+    margin: 0 !important;
+}
+
+.ant-collapse-header {
     background-color: #fff;
+    margin: 5px;
+    border-radius: 10px !important;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+    cursor: pointer;
+    padding: 0 !important;
 }

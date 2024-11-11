@@ -3,12 +3,19 @@
 </nz-card>
 <ng-template #img>
   <div nz-flex nzVertical>
-    <nz-image-group nz-flex nzGap="small" nzWrap="wrap" nzJustify="space-between" style="padding: 12px">
-      <ng-container *ngFor="let item of nzModalData.image">
-        <img class="life_img" nz-image [nzSrc]="item.url">
-      </ng-container>
+    <nz-image-group>
+      <div nz-row nzFlex nzGap="small" nzWrap="wrap" nzJustify="start" style="padding: 12px; width: 100%;">
+        <ng-container *ngFor="let item of nzModalData.image; let i = index">
+          <!-- 根据图片数量动态设置 nzSpan -->
+          <nz-col [nzSpan]="getColSpan(nzModalData.image.length, i)">
+            <img class="life_img" nz-image [nzSrc]="item.url" />
+          </nz-col>
+        </ng-container>
+      </div>
     </nz-image-group>
-    <h5 nz-typography nzType="secondary" style="text-align: end;margin-right: 25px;">{{ nzModalData.date | date:
-      'yyyy年M月d日' }} </h5>
+    <h5 nz-typography nzType="secondary" style="text-align: end; margin-right: 25px;">
+      {{ nzModalData.date | date: 'yyyy年M月d日' }}
+    </h5>
   </div>
+
 </ng-template>

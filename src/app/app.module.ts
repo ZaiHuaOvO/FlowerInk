@@ -24,6 +24,8 @@ import { LifeComponent } from './pages/life/life.component';
 import { TravelComponent } from './pages/travel/travel.component';
 import { LifeTimelineComponent } from './pages/life/life-timeline/life-timeline.component';
 import { LifeDialogComponent } from './pages/life/life-dialog/life-dialog.component';
+import { LifeTimelineV2Component } from './pages/life/life-timeline-v2/life-timeline-v2.component';
+import { LifeButtonComponent } from './pages/life/life-button/life-button.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -38,7 +40,10 @@ registerLocaleData(zh);
     TravelComponent,
     LifeTimelineComponent,
     LifeDialogComponent,
+    LifeTimelineV2Component,
+    LifeButtonComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

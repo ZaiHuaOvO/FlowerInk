@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-life-button',
   templateUrl: './life-button.component.html',
-  styleUrls: ['./life-button.component.css']
+  styleUrls: ['./life-button.component.css'],
 })
 export class LifeButtonComponent implements OnInit {
+  @Input() year: any = '';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

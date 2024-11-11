@@ -3,7 +3,7 @@
 <nz-layout class="app-layout" *ngIf="!isHomePage">
   <nz-header @QuickDown [ngStyle]="{ height: isCollapsed ? '54px' : (data.length * 53 + 54) + 'px'}">
     <div *ngIf="!isMobile" style="background: #fff" class="app-header" nz-flex [nzVertical]="false"
-      [nzJustify]="'space-between'" [nzAlign]="'center'">
+      [nzJustify]="'start'" [nzAlign]="'center'" nzGap="large">
       <div class="head" nz-flex [nzVertical]="false" nzAlign="center" nzJustify="center" [nzGap]="'middle'"
         [routerLink]="['/']">
         <nz-avatar nzSize="small" nzIcon="user" nzSrc="../assets/img/猫娘.jpg" style="cursor: pointer;"></nz-avatar>

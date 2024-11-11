@@ -2,7 +2,8 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     padding: 5px;
     object-fit: cover;
-    width: 30%;
+    width: 100%;
+    height: auto;
     aspect-ratio: 1;
     /* 保持宽高比为1:1 */
 }

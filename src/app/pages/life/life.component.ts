@@ -31,10 +31,31 @@ import { LifeDialogComponent } from './life-dialog/life-dialog.component';
   selector: 'app-life',
   templateUrl: './life.component.html',
   styleUrls: ['./life.component.css'],
-  animations: [QuickLeft, QuickRight, SlowLeft, SlowRight, QuickUp, SlowUp],
+  animations: [
+    QuickLeft,
+    QuickRight,
+    SlowLeft,
+    SlowRight,
+    QuickUp,
+    SlowUp,
+    trigger('fadeInUp', [
+      transition(
+        ':enter',
+        [
+          style({ opacity: 0, transform: 'translateY(100px)' }),
+          animate(
+            '{{ timing }}ms ease-out',
+            style({ opacity: 1, transform: 'translateY(0)' })
+          ),
+        ],
+        { params: { timing: 100 } }
+      ),
+    ]),
+  ],
 })
 export class LifeComponent implements OnInit {
   lifeData: any[] = [];
+  lifeDataV2: any[] = [];
   total = 0;
   loading = true;
   yearData: any[] = [];
@@ -75,6 +96,8 @@ export class LifeComponent implements OnInit {
       .subscribe((res: any) => {
         this.lifeData = res['data'].data;
         this.total = res['data'].count;
+        this.lifeDataV2 = this.groupByYear(this.lifeData);
+        this.lifeDataV2[0].active = true;
         this.loading = false;
       });
   }
@@ -82,7 +105,7 @@ export class LifeComponent implements OnInit {
   ngOnInit() {}
 
   orderData(): void {
-    this.lifeData.reverse();
+    this.lifeDataV2.reverse();
     this.order = !this.order;
   }
 
@@ -119,6 +142,20 @@ export class LifeComponent implements OnInit {
     }
   }
 
+  getLifeDetail(i: any): void {
+    this.modal.create({
+      // nzTitle: '点滴',
+      nzContent: LifeDialogComponent,
+      nzStyle: { width: '40vw' },
+      nzData: i,
+      nzCentered: true,
+      nzKeyboard: true,
+      nzMaskClosable: true,
+      nzClosable: false,
+      nzFooter: null,
+    });
+  }
+
   getLifeDetailMobile(i: any): void {
     this.modal.create({
       // nzTitle: '点滴',
@@ -131,5 +168,37 @@ export class LifeComponent implements OnInit {
       nzClosable: false,
       nzFooter: null,
     });
+  }
+
+  groupByYear(dataArray: any[]): { year: string; data: any[] }[] {
+    if (!dataArray || dataArray.length === 0) {
+      return [];
+    }
+
+    const groupedData: { [key: string]: any[] } = {};
+
+    dataArray.forEach((item) => {
+      // 确保 `date` 是一个有效的日期字符串
+      const date = new Date(item.date);
+      if (isNaN(date.getTime())) {
+        console.warn(`Invalid date format for item with id ${item.id}`);
+        return;
+      }
+
+      const year = date.getFullYear().toString();
+
+      if (!groupedData[year]) {
+        groupedData[year] = [];
+      }
+
+      groupedData[year].push(item);
+    });
+
+    return Object.keys(groupedData)
+      .map((year) => ({
+        year,
+        data: groupedData[year],
+      }))
+      .reverse();
   }
 }
