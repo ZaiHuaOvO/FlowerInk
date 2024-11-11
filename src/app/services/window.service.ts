@@ -25,6 +25,9 @@ export class WindowService {
           map(() => this.checkViewportWidth())
         )
         .subscribe();
+    } else {
+      // 在服务器端，您可以设置一个默认值，例如 false
+      this.checkViewportWidth();
     }
   }
 
