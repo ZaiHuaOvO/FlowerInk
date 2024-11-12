@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import 'bytemd/dist/index.css'; */
+
+@import url('app/common_ui/css/markdown-qklhk.css');
+
 body {
     background-color: #F7F7F7;
 }
@@ -9,74 +12,6 @@ body {
     font-weight: 400;
     font-style: normal;
     color: rgb(36, 36, 36)
-}
-
-/* markdown复制按钮样式 */
-.markdown-clipboard-button {
-    background-color: rgba(0, 0, 0, 0);
-    box-shadow: none;
-    border: none;
-    color: aliceblue;
-    cursor: pointer;
-}
-
-#heading-0 {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333333;
-    border-bottom: 1px solid #EEEEEE;
-    padding-bottom: 8px;
-}
-
-#heading-1 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #333333;
-    border-bottom: 1px solid #EEEEEE;
-    padding-bottom: 5px;
-}
-
-#heading-2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333333;
-}
-
-#heading-3 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333333;
-}
-
-p {
-    font-size: 16px;
-    word-break: break-word;
-    line-height: 1.75;
-    font-weight: 400;
-    color: #333333;
-}
-
-blockquote {
-    border-left: 5px solid #DFE2E5;
-
-    p {
-        margin-left: 20px;
-        color: #77778D
-    }
-}
-
-code {
-    background-color: #FFF5F5;
-    color: #FF3600;
-    font-size: 14px;
-}
-
-pre {
-    background-color: gray;
-}
-
-#currentAnchor>div>pre>code>span.command-line-prompt>span {
-    display: none;
 }
 
 ::-webkit-scrollbar {
@@ -126,4 +61,8 @@ pre {
 
 .ant-list-items {
     background-color: #fff;
+}
+
+.ant-page-header-ghost {
+    border-radius: 10px;
 }

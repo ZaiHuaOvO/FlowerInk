@@ -32,7 +32,7 @@ nz-anchor {
     margin: 20px;
 }
 
-.ant-anchor-link {
+/* .ant-anchor-link {
     margin: 5px;
     font-size: 16px;
     font-weight: 400;
@@ -42,18 +42,12 @@ nz-anchor {
 
 .ant-page-header {
     border-radius: 10px;
-}
+} */
 
 .blog-content {
-    padding: 25px;
+    /* padding: 25px; */
 }
 
 .data {
     width: 20%;
-}
-
-code {
-    background-color: #f5f5f5;
-    padding: 2px 4px;
-    border-radius: 3px;
 }
