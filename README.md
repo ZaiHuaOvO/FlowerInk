@@ -158,3 +158,7 @@
 # 2024年11月12日
 
 为点滴弹窗中的图片添加鼠标悬停放大效果
+
+新增markdown样式,样式参考地址:<https://github.com/qklhk/juejin-markdown-theme-qklhk/blob/main/chocolate.scss>
+
+修复目录显示问题并且目录现在会固定显示在同一位置

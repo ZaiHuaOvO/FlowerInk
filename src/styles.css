@@ -66,3 +66,8 @@ body {
 .ant-page-header-ghost {
     border-radius: 10px;
 }
+
+.ant-anchor-wrapper {
+    margin: 20px;
+    font-weight: bold;
+}

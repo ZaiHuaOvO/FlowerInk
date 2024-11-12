@@ -71,7 +71,7 @@ import { NzImageModule } from 'ng-zorro-antd/image';
   exports: [
     // NzAffixModule,
     NzAlertModule,
-    // NzAnchorModule,
+    NzAnchorModule,
     // NzAutocompleteModule,
     NzAvatarModule,
     NzBackTopModule,

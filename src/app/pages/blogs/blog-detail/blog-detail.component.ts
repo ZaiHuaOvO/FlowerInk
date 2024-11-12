@@ -12,6 +12,7 @@ import 'highlight.js/styles/vs.css';
   animations: [QuickUp, SlowUp],
 })
 export class BlogDetailComponent implements OnInit {
+  targetOffset?: number;
   blogData: any;
   loading = true;
   @Input() markdownContent: string = '';
@@ -43,9 +44,11 @@ export class BlogDetailComponent implements OnInit {
         this.loading = false;
         this.isShow = true;
       });
+    this.targetOffset = window.innerHeight / 2;
   }
   generateAnchors(): void {
     const headings = this.el.nativeElement.querySelectorAll('h1, h2, h3, h4');
+    console.log('headings: ', headings);
     this.anchors = [];
 
     let currentH1: { children: any; href: string; title: string } | null = null;
@@ -73,21 +76,10 @@ export class BlogDetailComponent implements OnInit {
         currentH3.children.push({ href: `#${id}`, title: heading.innerText });
       }
     });
+    console.log('anchors: ', this.anchors);
   }
 
-  ngAfterViewInit() {
-    this.editor = new Editor(); // 初始化编辑器
-
-    // // 通过 setProps 方法设置属性
-    // this.editor.setProps({
-    //   target: this.editorElement.nativeElement,
-    //   value: this.markdownContent,
-    //   plugins: [gfm(), highlight()],
-    //   onChange: (value: string) => {
-    //     this.markdownContent = value;
-    //   },
-    // });
-  }
+  ngAfterViewInit() {}
 
   onBack(): void {
     history.go(-1);

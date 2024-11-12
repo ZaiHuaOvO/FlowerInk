@@ -1,5 +1,5 @@
 <ng-container *ngIf="isShow; else elseTemplate">
-  <div class="content" nz-flex [nzVertical]="false" nzJustify="center">
+  <div class="content" nz-flex [nzVertical]="false">
     <div class="blog" @QuickUp>
       <!-- TODO:翻页问题 -->
       <nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon [nzTitle]="blogData.title">
@@ -30,7 +30,7 @@
       <div class="menu">
         <nz-page-header class="site-page-header" nzTitle="目录"></nz-page-header>
         <nz-divider style="margin: 0;"></nz-divider>
-        <nz-anchor [nzAffix]="false" [nzCurrentAnchor]="currentAnchor">
+        <nz-anchor [nzCurrentAnchor]="currentAnchor" [nzTargetOffset]="'targetOffset'">
           <nz-link *ngFor="let anchor of anchors" [nzHref]="anchor.href" [nzTitle]="anchor.title">
             <nz-link *ngFor="let subAnchor of anchor.children" [nzHref]="subAnchor.href" [nzTitle]="subAnchor.title">
               <nz-link *ngFor="let subSubAnchor of subAnchor.children" [nzHref]="subSubAnchor.href"
@@ -52,8 +52,4 @@
   <div class="content"></div>
 </ng-template>
 
-<nz-back-top [nzTemplate]="tpl" [nzVisibilityHeight]="100">
-  <ng-template #tpl>
-    <span nz-icon nzType="rocket" nzTheme="outline" style="font-size: 48px;"></span>
-  </ng-template>
-</nz-back-top>
+<nz-back-top></nz-back-top>
