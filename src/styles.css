@@ -14,9 +14,10 @@ body {
     color: rgb(36, 36, 36)
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     display: none;
-}
+} */
+
 
 .zcool-kuaile-regular {
     font-family: "ZCOOL KuaiLe", sans-serif;
@@ -68,6 +69,16 @@ body {
 }
 
 .ant-anchor-wrapper {
-    margin: 20px;
+    margin: 10px;
     font-weight: bold;
+    max-height: 50vh !important;
+}
+
+.ant-anchor-wrapper::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+}
+
+.ant-anchor-wrapper::-webkit-scrollbar {
+    display: inline;
+    width: 5px;
 }

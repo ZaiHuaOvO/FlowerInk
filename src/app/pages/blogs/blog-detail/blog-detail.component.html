@@ -1,9 +1,13 @@
 <ng-container *ngIf="isShow; else elseTemplate">
   <div class="content" nz-flex [nzVertical]="false">
-    <div class="blog" @QuickUp>
+    <div class="blog" @QuickUp
+      [ngStyle]="{ 'width': isMobile ?  '100%' : '60%' ,'margin-left': isMobile ?  '0' : '10%'}">
       <!-- TODO:翻页问题 -->
-      <nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon [nzTitle]="blogData.title">
-        <nz-page-header-extra>
+      <nz-page-header class="site-page-header" (nzBack)="onBack()" nzBackIcon [nzTitle]="backTitle">
+        <ng-template #backTitle>
+          <span nz-typography style="cursor: pointer;" (click)="onBack()">返回</span>
+        </ng-template>
+        <nz-page-header-extra nz-flex nzAlign="center" nzJustify="center">
           <span nz-typography nzType="secondary">
             发布于{{blogData.date | date:'yyyy-MM-dd'}}
           </span>
@@ -19,7 +23,7 @@
           commandLine emoji mermaid clipboard></markdown>
       </div>
     </div>
-    <div class="data" @SlowUp nz-flex nzVertical>
+    <div class="data" @SlowUp nz-flex nzVertical *ngIf="!isMobile">
       <div class="me" nz-flex nzVertical="false" nzAlign="center" nzJustify="start" nzGap="middle">
         <nz-avatar [nzSize]="96" nzSrc="../../../assets/img/再花猫猫头.png" nzShape="square"></nz-avatar>
         <div nz-flex nzVertical>

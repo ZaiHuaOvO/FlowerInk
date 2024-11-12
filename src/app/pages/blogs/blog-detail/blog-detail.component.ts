@@ -5,6 +5,7 @@ import { QuickUp, SlowUp } from '../../../animations/animation';
 import { Editor, Viewer } from 'bytemd';
 import 'bytemd/dist/index.css';
 import 'highlight.js/styles/vs.css';
+import { WindowService } from '../../../services/window.service';
 @Component({
   selector: 'app-blog-detail',
   templateUrl: './blog-detail.component.html',
@@ -27,13 +28,18 @@ export class BlogDetailComponent implements OnInit {
   isShow = false;
   @ViewChild('editor') editorElement!: ElementRef;
   editor!: Editor;
+  isMobile!: boolean;
 
   constructor(
     private blogsService: BlogsService,
     private activateInfo: ActivatedRoute,
-    private el: ElementRef
-  ) {}
-
+    private el: ElementRef,
+    private window: WindowService
+  ) {
+    this.window.isMobile$.subscribe((isMobile) => {
+      this.isMobile = isMobile;
+    });
+  }
   ngOnInit() {
     this.blogsService
       .getBlogDetail(this.activateInfo.snapshot.params['id'])
